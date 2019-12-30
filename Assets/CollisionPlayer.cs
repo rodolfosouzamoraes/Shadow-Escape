@@ -9,7 +9,7 @@ public class CollisionPlayer : MonoBehaviour
     [SerializeField] Sprite[] barlives;
 
     int totalLife;
-    int totalDamage;
+    public int totalDamage;
     float damageForce = 25f;
     Rigidbody2D myRigibody;
     Animator myAnimator;
@@ -51,6 +51,12 @@ public class CollisionPlayer : MonoBehaviour
         myAnimator.SetBool("death", true);
         movimentPlayer.isAlive = false;
         myRigibody.velocity = new Vector2(damageForce * transform.localScale.x*-1, damageForce);
+    }
+
+    public void RestoreLife()
+    {
+        totalDamage = 0;
+        barLife.sprite = barlives[totalDamage];
     }
 
 
