@@ -25,9 +25,14 @@ public class CollisionPlayer : MonoBehaviour
         myRigibody.velocity += jumpVelocityToAdd;
     }
 
+    public void DamagePlayer()
+    {
+        //Tirar Vida
+        myRigibody.velocity = new Vector2(2f * transform.localScale.x * -1, 2f);
+    }
+
     public void KillPlayer()
     {
-        //Vector2 jumpVelocityToAdd = new Vector2(damageForce * transform.localScale.x, damageForce);
         myAnimator.SetBool("death", true);
         GetComponent<MovimentPlayer>().isAlive = false;
         myRigibody.velocity = new Vector2(25f * transform.localScale.x*-1, 25f);
