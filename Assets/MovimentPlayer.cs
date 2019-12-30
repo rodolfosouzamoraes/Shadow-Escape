@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,20 +7,59 @@ public class MovimentPlayer : MonoBehaviour
 {
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float climbSpeed = 5f;
 
     Rigidbody2D myRigibody;
     BoxCollider2D myBoxCollider;
+    CapsuleCollider2D myCapsuleCollider;
     Animator myAnimator;
+    float gravityScaleAtStart;
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
         myBoxCollider = GetComponent<BoxCollider2D>();
+        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         myAnimator = GetComponent<Animator>();
+        gravityScaleAtStart = myRigibody.gravityScale;
     }
     void Update()
     {
         Run();
+        ClimpLadder();
         Jump();
+        
+    }
+
+    private void ClimpLadder()
+    {
+        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        {
+            //myAnimator.SetBool("Climbing", false);
+            myRigibody.gravityScale = gravityScaleAtStart;
+            return;
+        }
+        Debug.Log("Encostou na escada!");
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            MovimentY(1);
+        } 
+        else if (Input.GetKey(KeyCode.S))
+        {
+            MovimentY(-1);
+        }
+        else
+        {
+            myRigibody.velocity = new Vector2(myRigibody.velocity.x, 0);
+        }
+
+    }
+
+    private void MovimentY(int controlThrow)
+    {
+        Vector2 climbVelocity = new Vector2(myRigibody.velocity.x, controlThrow * climbSpeed);
+        myRigibody.velocity = climbVelocity;
+        myRigibody.gravityScale = 0;
     }
 
     private void Jump()
