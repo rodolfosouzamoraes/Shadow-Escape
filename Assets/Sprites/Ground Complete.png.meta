@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: dfcbdc13160506f49af7182b81d8cb64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1845912415980353063
+    second: Ground Complete_0
+  - first:
+      213: 1599804577229187559
+    second: Ground Complete_1
+  - first:
+      213: -9185486258066201334
+    second: Ground Complete_2
+  - first:
+      213: -6793525296166273358
+    second: Ground Complete_3
+  - first:
+      213: 7961885538729196498
+    second: Ground Complete_4
+  - first:
+      213: -4111549062646241674
+    second: Ground Complete_5
+  - first:
+      213: 1050476918712700326
+    second: Ground Complete_6
+  - first:
+      213: -1999821348978147432
+    second: Ground Complete_7
+  - first:
+      213: -57084588116516660
+    second: Ground Complete_8
+  - first:
+      213: -4357577928296269135
+    second: Ground Complete_9
+  - first:
+      213: -1854302713179179529
+    second: Ground Complete_10
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ground Complete_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209d5f501e326ba4d80a90726ed7cbd5
+      internalID: -1845912415980353063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -4}
+        - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 2, y: 4}
+        - {x: 4, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eceb421f63befc46b850572559a2064
+      internalID: 1599804577229187559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -2}
+        - {x: 2, y: -4}
+        - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 2, y: 4}
+        - {x: 4, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd072c72e6f76bf4a84efb1029157c79
+      internalID: -9185486258066201334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 2}
+        - {x: -2, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d7258970972334d942d15ba6a652b7
+      internalID: -6793525296166273358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -4}
+        - {x: -2, y: -4}
+        - {x: -4, y: -2}
+        - {x: -4, y: 2}
+        - {x: -2, y: 4}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112245af7cfb8b7499e6baf6d27722fa
+      internalID: 7961885538729196498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -4}
+        - {x: -4, y: -4}
+        - {x: -4, y: 2}
+        - {x: -2, y: 4}
+        - {x: 2, y: 4}
+        - {x: 4, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a18c396cc89f4234a85afdeddafee734
+      internalID: -4111549062646241674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -2}
+        - {x: -4, y: 2}
+        - {x: -2, y: 4}
+        - {x: 2, y: 4}
+        - {x: 4, y: 2}
+        - {x: 4, y: -2}
+        - {x: 2, y: -4}
+        - {x: -2, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67afd080a9ab6904e99ac09c19ccea44
+      internalID: 1050476918712700326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_7
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b656f7b7edd712c4da16f9c1153811f1
+      internalID: -1999821348978147432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -2}
+        - {x: 2, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c219027ba7a22c47a54d976a78f789c
+      internalID: -57084588116516660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -2}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+        - {x: -2, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb1cd3610f9bf942bf98a2e5fdfb16b
+      internalID: -4357577928296269135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground Complete_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -2}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -2}
+        - {x: 2, y: -4}
+        - {x: -2, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff50dc66e55d374fa5ec87208bf45cf
+      internalID: -1854302713179179529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
