@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionEnemy : MonoBehaviour
 {
+    [SerializeField] GameObject soul;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.GetType() == typeof(BoxCollider2D))
@@ -12,6 +13,7 @@ public class CollisionEnemy : MonoBehaviour
             {
                 case "Player":
                     collision.gameObject.GetComponent<CollisionPlayer>().SoftLeapPlayer();
+                    Instantiate(soul, transform.position + new Vector3(0.4f * transform.localScale.x, 0.42f, 0), Quaternion.identity);
                     Destroy(gameObject);
                     break;
             }
