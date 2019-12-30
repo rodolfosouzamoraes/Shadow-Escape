@@ -14,6 +14,7 @@ public class MovimentPlayer : MonoBehaviour
     CapsuleCollider2D myCapsuleCollider;
     Animator myAnimator;
     float gravityScaleAtStart;
+    public bool isAlive { get; set; }
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
@@ -21,9 +22,12 @@ public class MovimentPlayer : MonoBehaviour
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         myAnimator = GetComponent<Animator>();
         gravityScaleAtStart = myRigibody.gravityScale;
+        isAlive = true;
     }
     void Update()
     {
+        if (!isAlive) { return; }
+
         Run();
         ClimpLadder();
         Jump();
