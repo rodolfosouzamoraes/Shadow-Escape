@@ -108,6 +108,7 @@ public class MovimentPlayer : MonoBehaviour
         myRigibody.velocity = playerVelocity;
         Vector2 novoScale = new Vector2(controlThrow, transform.localScale.y);
         transform.localScale = novoScale;
+        GetComponent<FlipLifeBar>().FlipBarLife(controlThrow);
 
 
         myAnimator.SetBool("run", true);
