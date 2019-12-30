@@ -15,7 +15,6 @@ public class BulletMoviment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("ControlTrow: " + controlThrow);
         Vector2 velocity = new Vector2(controlThrow * runSpeed, myRigibody.velocity.y);
         myRigibody.velocity = velocity;
 
