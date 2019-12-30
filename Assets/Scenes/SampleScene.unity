@@ -35510,7 +35510,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeed: 15
-  damageForce: 30
+  barLife: {fileID: 800663469}
+  barlives:
+  - {fileID: 3078983827185766945, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: 4439731344930361101, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: 5416692057870621367, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: -2280197608502351538, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: 5696695101904728114, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: -8513748772204941419, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: -191215779756288029, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: 6501322755119752157, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
+  - {fileID: 7847533434008903735, guid: 5cfbd0aced486cb4795701497a16b428, type: 3}
 --- !u!1 &1878083220
 GameObject:
   m_ObjectHideFlags: 0

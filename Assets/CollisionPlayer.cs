@@ -5,18 +5,22 @@ using UnityEngine;
 public class CollisionPlayer : MonoBehaviour
 {
     [SerializeField] float jumpSpeed = 15f;
-    [SerializeField] float damageForce = 30f;
+    [SerializeField] SpriteRenderer barLife;
+    [SerializeField] Sprite[] barlives;
 
+    int totalLife;
+    int totalDamage;
+    float damageForce = 25f;
     Rigidbody2D myRigibody;
-    BoxCollider2D myBoxCollider;
-    CapsuleCollider2D myCapsuleCollider;
     Animator myAnimator;
+    MovimentPlayer movimentPlayer;
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
-        myBoxCollider = GetComponent<BoxCollider2D>();
-        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         myAnimator = GetComponent<Animator>();
+        movimentPlayer = GetComponent<MovimentPlayer>();
+        totalLife = barlives.Length;
+        totalDamage = 0;
     }
 
     public void SoftLeapPlayer()
@@ -27,15 +31,26 @@ public class CollisionPlayer : MonoBehaviour
 
     public void DamagePlayer()
     {
-        //Tirar Vida
-        myRigibody.velocity = new Vector2(2f * transform.localScale.x * -1, 2f);
+        if (movimentPlayer.isAlive)
+        {
+            totalDamage++;
+            if (totalDamage < totalLife)
+            {
+                barLife.sprite = barlives[totalDamage];
+            }
+            if (totalDamage >= totalLife-1)
+            {
+                KillPlayer();
+            }
+            myRigibody.velocity = new Vector2(2f * transform.localScale.x * -1, 2f);
+        }
     }
 
     public void KillPlayer()
     {
         myAnimator.SetBool("death", true);
-        GetComponent<MovimentPlayer>().isAlive = false;
-        myRigibody.velocity = new Vector2(25f * transform.localScale.x*-1, 25f);
+        movimentPlayer.isAlive = false;
+        myRigibody.velocity = new Vector2(damageForce * transform.localScale.x*-1, damageForce);
     }
 
 
