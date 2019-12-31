@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject shadow;
     [SerializeField] GameObject camera;
     [SerializeField] int stage;
+    [SerializeField] float waySpeed = 2f;
+
+    [SerializeField] Vector2[] wayStage1;
+
+    bool isStartWay = false;
+    int way = 0;
+    
     void Start()
     {
         player.GetComponent<MovimentPlayer>().isAlive = false;
@@ -25,7 +32,24 @@ public class GameManager : MonoBehaviour
         camera.transform.position = positionCamera[0];
         player.GetComponent<MovimentPlayer>().isAlive = true;
         shadow.GetComponent<ExitShadowArea>().isActived = true;
+        Invoke("StartWay", 1f);
+
     }
 
-    
+    void StartWay()
+    {
+        isStartWay = true;
+    }
+
+    private void Update()
+    {
+        if (isStartWay)
+        {
+
+            //shadow.transform.position = wayStage1[way];
+            shadow.transform.Translate(wayStage1[1] * Time.deltaTime * waySpeed,Space.Self);
+        }
+    }
+
+
 }
