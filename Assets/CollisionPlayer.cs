@@ -51,12 +51,27 @@ public class CollisionPlayer : MonoBehaviour
         myAnimator.SetBool("death", true);
         movimentPlayer.isAlive = false;
         myRigibody.velocity = new Vector2(damageForce * transform.localScale.x*-1, damageForce);
+        Invoke("ReloadLevel", 1.5f);
     }
 
     public void RestoreLife()
     {
         totalDamage = 0;
         barLife.sprite = barlives[totalDamage];
+    }
+
+    void ReloadLevel()
+    {
+        RestoreLife();
+        GameManager gm = FindObjectOfType<GameManager>();
+
+        myAnimator.SetBool("idle", true);
+        myAnimator.SetBool("run", false);
+        myAnimator.SetBool("jump", false);
+        myAnimator.SetBool("death", false);
+
+        gm.ResetStage();
+
     }
 
 

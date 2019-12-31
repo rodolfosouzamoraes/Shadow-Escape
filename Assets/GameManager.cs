@@ -17,10 +17,12 @@ public class GameManager : MonoBehaviour
 
     bool isStartWay = false;
     int way = 0;
+    MovimentPlayer movimentPlayer;
     
     void Start()
     {
-        player.GetComponent<MovimentPlayer>().isAlive = false;
+        movimentPlayer = player.GetComponent<MovimentPlayer>();
+        movimentPlayer.isAlive = false;
         stage = 0;
         Invoke("StartGame", 4.5f);
     }
@@ -30,7 +32,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = positionPlayer[0];
         shadow.transform.position = positionShadowStage[0];
         camera.transform.position = positionCamera[0];
-        player.GetComponent<MovimentPlayer>().isAlive = true;
+        movimentPlayer.isAlive = true;
         shadow.GetComponent<ExitShadowArea>().isActived = true;
         Invoke("StartWay", 1f);
 
@@ -43,18 +45,41 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (isStartWay)
+        if (movimentPlayer.isAlive)
         {
-            if (Vector3.Distance(wayStage1[way], shadow.transform.position) < 1)
-            {
-                way++;
-                if (way >= wayStage1.Length)
+            if (isStartWay)
+            {                
+                if (Vector3.Distance(wayStage1[way], shadow.transform.position) < 1)
                 {
-                    way = 0;
+                    way++;
+                    if (way >= wayStage1.Length)
+                    {
+                        way = 0;
+                    }
                 }
+                shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, wayStage1[way], Time.deltaTime * waySpeed);
             }
-            shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, wayStage1[way], Time.deltaTime * waySpeed);
         }
+        
+    }
+
+    public void ResetStage()
+    {
+        way = 0;
+        switch (stage)
+        {
+            case 0:                
+                player.transform.position = positionPlayer[0];
+                shadow.transform.position = positionShadowStage[0];
+                camera.transform.position = positionCamera[0];
+                break;
+        }
+        Invoke("EnablePlayer", 1f);
+    }
+
+    void EnablePlayer()
+    {
+        movimentPlayer.isAlive = true;
     }
 
 

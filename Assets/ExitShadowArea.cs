@@ -7,10 +7,14 @@ public class ExitShadowArea : MonoBehaviour
     public bool isActived = false;
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (isActived)
+        if (collision.GetType() == typeof(CapsuleCollider2D))
         {
-            collision.gameObject.GetComponent<CollisionPlayer>().KillPlayer();
+            if (isActived)
+            {
+                collision.gameObject.GetComponent<CollisionPlayer>().KillPlayer();
+            }
         }
+        
         
 
     }

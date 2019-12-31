@@ -14,7 +14,7 @@ public class MovimentPlayer : MonoBehaviour
     CapsuleCollider2D myCapsuleCollider;
     Animator myAnimator;
     float gravityScaleAtStart;
-    public bool isAlive { get; set; }
+    public bool isAlive;
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
