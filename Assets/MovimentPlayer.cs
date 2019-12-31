@@ -22,7 +22,6 @@ public class MovimentPlayer : MonoBehaviour
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         myAnimator = GetComponent<Animator>();
         gravityScaleAtStart = myRigibody.gravityScale;
-        isAlive = true;
     }
     void Update()
     {

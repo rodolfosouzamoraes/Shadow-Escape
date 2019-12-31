@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ExitShadowArea : MonoBehaviour
 {
+    public bool isActived = false;
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Player Death");
-        collision.gameObject.GetComponent<CollisionPlayer>().KillPlayer();
+        if (isActived)
+        {
+            collision.gameObject.GetComponent<CollisionPlayer>().KillPlayer();
+        }
+        
+
     }
 }
