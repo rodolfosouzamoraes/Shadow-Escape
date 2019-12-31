@@ -42186,7 +42186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234970002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.381, y: 6.489, z: 142.38005}
+  m_LocalPosition: {x: -11.381, y: 6.489, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066752834}
@@ -45906,8 +45906,8 @@ MonoBehaviour:
   player: {fileID: 1840512307}
   shadow: {fileID: 375165974}
   camera: {fileID: 1920487607}
-  wayShadow: {fileID: 0}
   stage: 0
+  waySpeed: 2
   wayStage1:
   - {x: -14, y: -6.5}
   - {x: -10.5, y: -6.5}
@@ -45969,7 +45969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658497877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.421, y: -0.502, z: 142.38005}
+  m_LocalPosition: {x: 10.421, y: -0.502, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066752834}
@@ -46758,7 +46758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710284661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.55, y: -6.52, z: 142.38005}
+  m_LocalPosition: {x: 6.55, y: -6.52, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066752834}
@@ -53179,7 +53179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124906742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.442, y: -6.514, z: 142.38005}
+  m_LocalPosition: {x: -8.442, y: -6.514, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1066752834}

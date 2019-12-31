@@ -45,9 +45,15 @@ public class GameManager : MonoBehaviour
     {
         if (isStartWay)
         {
-
-            //shadow.transform.position = wayStage1[way];
-            shadow.transform.Translate(wayStage1[1] * Time.deltaTime * waySpeed,Space.Self);
+            if (Vector3.Distance(wayStage1[way], shadow.transform.position) < 1)
+            {
+                way++;
+                if (way >= wayStage1.Length)
+                {
+                    way = 0;
+                }
+            }
+            shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, wayStage1[way], Time.deltaTime * waySpeed);
         }
     }
 
