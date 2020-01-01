@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float waySpeed = 2f;
 
     [SerializeField] Vector2[] wayStage1;
+    [SerializeField] Vector2[] wayStage2;
 
     bool isStartWay = false;
     int way = 0;
@@ -53,21 +55,51 @@ public class GameManager : MonoBehaviour
         if (movimentPlayer.isAlive)
         {
             if (isStartWay)
-            {                
-                if (Vector3.Distance(wayStage1[way], shadow.transform.position) < 1)
+            {
+                switch (stage)
                 {
-                    way++;
-                    if (way >= wayStage1.Length)
-                    {
-                        way = 0;
-                        PauseWay();
-                        return;
-                    }
+                    case 0:
+                        WayPoint(wayStage1);
+                        break;
+                    case 1:
+                        WayPoint(wayStage2);
+                        break;
+                    case 2:
+                        //WayPoint(wayStage2);
+                        break;
                 }
-                shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, wayStage1[way], Time.deltaTime * waySpeed);
+                
             }
         }
         
+    }
+
+    private void WayPoint(Vector2[] wayStage)
+    {
+        if (Vector3.Distance(wayStage[way], shadow.transform.position) < 1)
+        {
+            way++;
+            if (way >= wayStage.Length)
+            {
+                way = 0;
+                PauseWay();
+                if (player.GetComponent<CollisionPlayer>().isFinishStage)
+                {
+                    //Next Stage
+                    stage++;
+                    player.GetComponent<CollisionPlayer>().isFinishStage = false;
+                    shadow.GetComponent<ExitShadowArea>().isActived = false;
+                    movimentPlayer.isAlive = false;
+                    player.transform.position = positionPlayer[stage + 1];
+                    shadow.transform.position = positionShadowStage[stage + 1];
+                    camera.transform.position = positionCamera[stage + 1];
+                    shadow.GetComponent<Animator>().Play("Shadow", -1, 0);
+                    Invoke("NextStage", 4.5f);
+                }
+                return;
+            }
+        }
+        shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, wayStage[way], Time.deltaTime * waySpeed);
     }
 
     public void ResetStage()
@@ -76,9 +108,14 @@ public class GameManager : MonoBehaviour
         switch (stage)
         {
             case 0:                
-                player.transform.position = positionPlayer[0];
-                shadow.transform.position = positionShadowStage[0];
-                camera.transform.position = positionCamera[0];
+                player.transform.position = positionPlayer[stage];
+                shadow.transform.position = positionShadowStage[stage];
+                camera.transform.position = positionCamera[stage];
+                break;
+            case 1:
+                player.transform.position = positionPlayer[stage];
+                shadow.transform.position = positionShadowStage[stage];
+                camera.transform.position = positionCamera[stage];
                 break;
         }
         Invoke("EnablePlayer", 1f);
@@ -87,6 +124,16 @@ public class GameManager : MonoBehaviour
     void EnablePlayer()
     {
         movimentPlayer.isAlive = true;
+    }
+
+    void NextStage()
+    {
+        shadow.GetComponent<ExitShadowArea>().isActived = true;
+        movimentPlayer.isAlive = true;
+        StartWay();
+        player.transform.position = positionPlayer[stage];
+        shadow.transform.position = positionShadowStage[stage];
+        camera.transform.position = positionCamera[stage];
     }
 
 

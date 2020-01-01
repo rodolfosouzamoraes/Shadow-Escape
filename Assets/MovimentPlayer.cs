@@ -15,6 +15,7 @@ public class MovimentPlayer : MonoBehaviour
     Animator myAnimator;
     float gravityScaleAtStart;
     public bool isAlive;
+    bool isLadder;
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
@@ -37,32 +38,25 @@ public class MovimentPlayer : MonoBehaviour
     {
         if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
         {
-            //myAnimator.SetBool("Climbing", false);
+            isLadder = false;
             myRigibody.gravityScale = gravityScaleAtStart;
             return;
         }
-        Debug.Log("Encostou na escada!");
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            MovimentY(1);
-        } 
-        else if (Input.GetKey(KeyCode.S))
-        {
-            MovimentY(-1);
-        }
         else
         {
-            myRigibody.velocity = new Vector2(myRigibody.velocity.x, 0);
+            if (!isLadder)
+            {
+                isLadder = true;
+                myRigibody.velocity = new Vector2(0, 0);
+                myRigibody.gravityScale = 0;
+            }
         }
 
-    }
-
-    private void MovimentY(int controlThrow)
-    {
-        Vector2 climbVelocity = new Vector2(myRigibody.velocity.x, controlThrow * climbSpeed);
+        float contrlThrow = Input.GetAxis("Vertical");
+        Vector2 climbVelocity = new Vector2(myRigibody.velocity.x, contrlThrow * climbSpeed);
         myRigibody.velocity = climbVelocity;
         myRigibody.gravityScale = 0;
+
     }
 
     private void Jump()
@@ -87,6 +81,7 @@ public class MovimentPlayer : MonoBehaviour
         }
         else
         {
+            myRigibody.velocity = new Vector2(0, myRigibody.velocity.y);
             if (myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
                 myAnimator.SetBool("run", false);
                 myAnimator.SetBool("idle", true);

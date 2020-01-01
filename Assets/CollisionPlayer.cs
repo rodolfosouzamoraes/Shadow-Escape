@@ -10,6 +10,7 @@ public class CollisionPlayer : MonoBehaviour
 
     int totalLife;
     public int totalDamage;
+    public bool isFinishStage;
     float damageForce = 25f;
     Rigidbody2D myRigibody;
     Animator myAnimator;
@@ -21,6 +22,7 @@ public class CollisionPlayer : MonoBehaviour
         movimentPlayer = GetComponent<MovimentPlayer>();
         totalLife = barlives.Length;
         totalDamage = 0;
+        isFinishStage = false;
     }
 
     public void SoftLeapPlayer()
@@ -64,7 +66,7 @@ public class CollisionPlayer : MonoBehaviour
     {
         RestoreLife();
         GameManager gm = FindObjectOfType<GameManager>();
-
+        myRigibody.velocity = new Vector2(0,0);
         myAnimator.SetBool("idle", true);
         myAnimator.SetBool("run", false);
         myAnimator.SetBool("jump", false);
