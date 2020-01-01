@@ -12,6 +12,7 @@ TagManager:
   - Battery
   - Life
   - Shadow
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Battery
   - Life
   - Shadow
-  - 
+  - Door
   - 
   - 
   - 

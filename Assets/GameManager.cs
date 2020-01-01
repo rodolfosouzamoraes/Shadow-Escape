@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
         isStartWay = true;
     }
 
+    public void PauseWay()
+    {
+        isStartWay = false;
+    }
+
     private void Update()
     {
         if (movimentPlayer.isAlive)
@@ -54,7 +59,7 @@ public class GameManager : MonoBehaviour
                     way++;
                     if (way >= wayStage1.Length)
                     {
-                        way = 0;
+                        PauseWay();
                     }
                 }
                 shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, wayStage1[way], Time.deltaTime * waySpeed);
