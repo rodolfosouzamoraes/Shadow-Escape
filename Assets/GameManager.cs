@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Vector2[] wayStage1;
     [SerializeField] Vector2[] wayStage2;
+    [SerializeField] Vector2[] wayStage3;
 
     bool isStartWay = false;
     int way = 0;
@@ -65,7 +66,10 @@ public class GameManager : MonoBehaviour
                         WayPoint(wayStage2);
                         break;
                     case 2:
-                        //WayPoint(wayStage2);
+                        WayPoint(wayStage3);
+                        break;
+                    case 3:
+                        //WayPoint(wayStage3);
                         break;
                 }
                 
@@ -105,19 +109,9 @@ public class GameManager : MonoBehaviour
     public void ResetStage()
     {
         way = 0;
-        switch (stage)
-        {
-            case 0:                
-                player.transform.position = positionPlayer[stage];
-                shadow.transform.position = positionShadowStage[stage];
-                camera.transform.position = positionCamera[stage];
-                break;
-            case 1:
-                player.transform.position = positionPlayer[stage];
-                shadow.transform.position = positionShadowStage[stage];
-                camera.transform.position = positionCamera[stage];
-                break;
-        }
+        player.transform.position = positionPlayer[stage];
+        shadow.transform.position = positionShadowStage[stage];
+        camera.transform.position = positionCamera[stage];
         Invoke("EnablePlayer", 1f);
     }
 
