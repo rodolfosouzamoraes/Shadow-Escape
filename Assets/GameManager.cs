@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         player.transform.position = positionPlayer[0];
-        shadow.transform.position = positionShadowStage[0];
+        shadow.transform.position =  new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
         camera.transform.position = positionCamera[0];
         movimentPlayer.isAlive = true;
         shadow.GetComponent<ExitShadowArea>().isActived = true;
@@ -97,7 +97,8 @@ public class GameManager : MonoBehaviour
 
     private void WayPoint(Vector2[] wayStage)
     {
-        if (Vector3.Distance(wayStage[way], shadow.transform.position) < 1)
+       
+        if (Vector3.Distance(new Vector3(wayStage[way].x, wayStage[way].y,-5.83f), shadow.transform.position) < 1)
         {
             way++;
             if (way >= wayStage.Length)
@@ -123,17 +124,17 @@ public class GameManager : MonoBehaviour
                         if (stage > 3)
                         {
                             player.transform.position = positionPlayer[0];
-                            shadow.transform.position = positionShadowStage[0];
+                            shadow.transform.position = new Vector3(positionShadowStage[0].x, positionShadowStage[0].y,-5.83f);
                             camera.transform.position = positionCamera[0];
                         }
                         else
                         {
                             player.transform.position = positionPlayer[stage + 1];
-                            shadow.transform.position = positionShadowStage[stage + 1];
+                            shadow.transform.position = new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
                             camera.transform.position = positionCamera[stage + 1];
                         }
 
-                        shadow.GetComponent<Animator>().Play("Shadow", -1, 0);
+                        shadow.GetComponent<Animator>().Play("Light", -1, 0);
                         Invoke("NextStage", 4.5f);
                     }
                     
@@ -141,7 +142,7 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, wayStage[way], Time.deltaTime * waySpeed);
+        shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, new Vector3(wayStage[way].x, wayStage[way].y, -5.83f), Time.deltaTime * waySpeed);
     }
 
     public void ResetStage()
