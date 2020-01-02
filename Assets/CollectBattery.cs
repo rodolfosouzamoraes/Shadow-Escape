@@ -10,4 +10,9 @@ public class CollectBattery : MonoBehaviour
     {
         totalBattery++;
     }
+
+    public int GetTotalBattery()
+    {
+        return totalBattery;
+    }
 }

@@ -12,6 +12,10 @@ public class CollisionEnemy : MonoBehaviour
             switch (collision.gameObject.tag)
             {
                 case "Player":
+                    if (gameObject.tag.Equals("Enemy"))
+                    {
+                        collision.gameObject.GetComponent<CollectCaverudo>().AddCaverudo();
+                    }
                     collision.gameObject.GetComponent<CollisionPlayer>().SoftLeapPlayer();
                     Instantiate(soul, transform.position + new Vector3(0.4f * transform.localScale.x, 0.42f, 0), Quaternion.identity);
                     Destroy(gameObject);

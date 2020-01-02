@@ -634,9 +634,9 @@ GameObject:
   - component: {fileID: 85772086}
   - component: {fileID: 85772085}
   - component: {fileID: 85772084}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (2)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -954,9 +954,9 @@ GameObject:
   - component: {fileID: 109054615}
   - component: {fileID: 109054614}
   - component: {fileID: 109054613}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (2)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2182,9 +2182,9 @@ GameObject:
   - component: {fileID: 324196103}
   - component: {fileID: 324196102}
   - component: {fileID: 324196101}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (1)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2325,9 +2325,9 @@ GameObject:
   - component: {fileID: 324817019}
   - component: {fileID: 324817018}
   - component: {fileID: 324817017}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2678,7 +2678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &340948442
 Transform:
   m_ObjectHideFlags: 0
@@ -2942,9 +2942,9 @@ GameObject:
   - component: {fileID: 405349304}
   - component: {fileID: 405349303}
   - component: {fileID: 405349302}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4635,9 +4635,9 @@ GameObject:
   - component: {fileID: 616724817}
   - component: {fileID: 616724816}
   - component: {fileID: 616724815}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (1)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4869,7 +4869,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -5131,32 +5131,32 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 631372922}
     m_ColliderPaths:
-    - - X: 1698749923
+    - - X: 1699999971
         Y: -80000000
-      - X: 1698749923
+      - X: 1699999971
         Y: 60000000
-      - X: 1691250048
+      - X: 1690000000
         Y: 59999971
-      - X: 1691250077
+      - X: 1690000029
         Y: -80000000
-    - - X: 1758749923
+    - - X: 1759999971
         Y: 0
-      - X: 1758749923
+      - X: 1759999971
         Y: 50000000
-      - X: 1751250048
+      - X: 1750000000
         Y: 49999971
-      - X: 1751250077
+      - X: 1750000029
         Y: 0
   m_CompositePaths:
     m_Paths:
-    - - {x: 169.875, y: -8}
-      - {x: 169.875, y: 6}
-      - {x: 169.125, y: 5.9999943}
-      - {x: 169.125, y: -8}
-    - - {x: 175.875, y: 0}
-      - {x: 175.875, y: 5}
-      - {x: 175.125, y: 4.9999943}
-      - {x: 175.125, y: 0}
+    - - {x: 170, y: -8}
+      - {x: 170, y: 6}
+      - {x: 169, y: 5.9999943}
+      - {x: 169, y: -8}
+    - - {x: 176, y: 0}
+      - {x: 176, y: 5}
+      - {x: 175, y: 4.9999943}
+      - {x: 175, y: 0}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!50 &631372921
@@ -9799,44 +9799,44 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 743219545}
     m_ColliderPaths:
-    - - X: 888749987
+    - - X: 889999971
         Y: -90000000
-      - X: 888749987
+      - X: 889999971
         Y: 0
-      - X: 881249984
+      - X: 880000000
         Y: -29
-      - X: 881250013
+      - X: 880000029
         Y: -90000000
-    - - X: 758749987
+    - - X: 759999971
         Y: -50000000
-      - X: 758749987
+      - X: 759999971
         Y: 0
-      - X: 751249984
+      - X: 750000000
         Y: -29
-      - X: 751250013
+      - X: 750000029
         Y: -50000000
-    - - X: 848749987
+    - - X: 849999971
         Y: -80000000
-      - X: 848749987
+      - X: 849999971
         Y: -40000000
-      - X: 841249984
+      - X: 840000000
         Y: -40000029
-      - X: 841250013
+      - X: 840000029
         Y: -80000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 75.87499, y: -5}
-      - {x: 75.87499, y: 0}
-      - {x: 75.125, y: -0.0000058}
-      - {x: 75.12501, y: -5}
-    - - {x: 88.875, y: -9}
-      - {x: 88.875, y: 0}
-      - {x: 88.125, y: -0.0000058}
-      - {x: 88.12501, y: -9}
-    - - {x: 84.875, y: -8}
-      - {x: 84.875, y: -4}
-      - {x: 84.125, y: -4.0000057}
-      - {x: 84.12501, y: -8}
+    - - {x: 75.99999, y: -5}
+      - {x: 75.99999, y: 0}
+      - {x: 75, y: -0.0000058}
+      - {x: 75.00001, y: -5}
+    - - {x: 88.99999, y: -9}
+      - {x: 88.99999, y: 0}
+      - {x: 88, y: -0.0000058}
+      - {x: 88.00001, y: -9}
+    - - {x: 84.99999, y: -8}
+      - {x: 84.99999, y: -4}
+      - {x: 84, y: -4.0000057}
+      - {x: 84.00001, y: -8}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!50 &743219544
@@ -10066,9 +10066,9 @@ GameObject:
   - component: {fileID: 766748376}
   - component: {fileID: 766748375}
   - component: {fileID: 766748374}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (1)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10209,9 +10209,9 @@ GameObject:
   - component: {fileID: 779858079}
   - component: {fileID: 779858078}
   - component: {fileID: 779858077}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (3)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10650,9 +10650,9 @@ GameObject:
   - component: {fileID: 801349735}
   - component: {fileID: 801349734}
   - component: {fileID: 801349733}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (5)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16309,20 +16309,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1011244880}
     m_ColliderPaths:
-    - - X: 148749971
+    - - X: 149999971
         Y: -80000000
-      - X: 148749971
+      - X: 149999971
         Y: 20000000
-      - X: 141250000
+      - X: 140000000
         Y: 19999971
-      - X: 141250029
+      - X: 140000029
         Y: -80000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 14.874993, y: -8}
-      - {x: 14.874993, y: 2}
-      - {x: 14.125, y: 1.9999943}
-      - {x: 14.125007, y: -8}
+    - - {x: 14.999993, y: -8}
+      - {x: 14.999993, y: 2}
+      - {x: 14, y: 1.9999943}
+      - {x: 14.000007, y: -8}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!50 &1011244879
@@ -37998,9 +37998,9 @@ GameObject:
   - component: {fileID: 1256338875}
   - component: {fileID: 1256338874}
   - component: {fileID: 1256338873}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38282,9 +38282,9 @@ GameObject:
   - component: {fileID: 1296040397}
   - component: {fileID: 1296040396}
   - component: {fileID: 1296040395}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (2)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39471,44 +39471,44 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1362561470}
     m_ColliderPaths:
-    - - X: 1178749923
+    - - X: 1179999971
         Y: -80000000
-      - X: 1178749923
+      - X: 1179999971
         Y: 60000000
-      - X: 1171250048
+      - X: 1170000000
         Y: 59999971
-      - X: 1171250077
+      - X: 1170000029
         Y: -80000000
-    - - X: 1358749923
+    - - X: 1359999971
         Y: -80000000
-      - X: 1358749923
+      - X: 1359999971
         Y: 30000000
-      - X: 1351250048
+      - X: 1350000000
         Y: 29999971
-      - X: 1351250077
+      - X: 1350000029
         Y: -80000000
-    - - X: 1118749923
+    - - X: 1119999971
         Y: -30000000
-      - X: 1118749923
+      - X: 1119999971
         Y: 30000000
-      - X: 1111250048
+      - X: 1110000000
         Y: 29999971
-      - X: 1111250077
+      - X: 1110000029
         Y: -30000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 117.875, y: -8}
-      - {x: 117.875, y: 6}
-      - {x: 117.12501, y: 5.9999943}
-      - {x: 117.12501, y: -8}
-    - - {x: 111.875, y: -3}
-      - {x: 111.875, y: 3}
-      - {x: 111.12501, y: 2.9999943}
-      - {x: 111.12501, y: -3}
-    - - {x: 135.875, y: -8}
-      - {x: 135.875, y: 3}
-      - {x: 135.125, y: 2.9999943}
-      - {x: 135.125, y: -8}
+    - - {x: 118, y: -8}
+      - {x: 118, y: 6}
+      - {x: 117, y: 5.9999943}
+      - {x: 117, y: -8}
+    - - {x: 112, y: -3}
+      - {x: 112, y: 3}
+      - {x: 111, y: 2.9999943}
+      - {x: 111, y: -3}
+    - - {x: 136, y: -8}
+      - {x: 136, y: 3}
+      - {x: 135, y: 2.9999943}
+      - {x: 135, y: -8}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!50 &1362561469
@@ -45249,9 +45249,9 @@ GameObject:
   - component: {fileID: 1474212842}
   - component: {fileID: 1474212841}
   - component: {fileID: 1474212840}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (4)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45546,9 +45546,9 @@ GameObject:
   - component: {fileID: 1534042737}
   - component: {fileID: 1534042736}
   - component: {fileID: 1534042735}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46307,6 +46307,8 @@ MonoBehaviour:
   camera: {fileID: 1920487607}
   stage: 0
   waySpeed: 2
+  totalBatteryInGame: 0
+  totalCaverudo: 0
   wayStage1:
   - {x: -14, y: -6.5}
   - {x: -10.5, y: -6.5}
@@ -46386,7 +46388,7 @@ MonoBehaviour:
   - {x: 66.5, y: 6.5}
   - {x: 66.5, y: 1}
   wayStage4:
-  - {x: 106, y: -7.5}
+  - {x: 106, y: -6.5}
   - {x: 109, y: -5}
   - {x: 110.5, y: -3.5}
   - {x: 110.5, y: 2.5}
@@ -46414,7 +46416,7 @@ MonoBehaviour:
   - {x: 124, y: 6.5}
   - {x: 124, y: 2.5}
   wayStage5:
-  - {x: 146, y: -7.5}
+  - {x: 146, y: -6.5}
   - {x: 147.5, y: -4.5}
   - {x: 152, y: -4.5}
   - {x: 152, y: -6.5}
@@ -47728,44 +47730,44 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1677502608}
     m_ColliderPaths:
-    - - X: 138749971
+    - - X: 139999971
         Y: -80000000
-      - X: 138749971
+      - X: 139999971
         Y: 50000000
-      - X: 131250000
+      - X: 130000000
         Y: 49999971
-      - X: 131250029
+      - X: 130000029
         Y: -80000000
-    - - X: 68749971
+    - - X: 69999971
         Y: -80000000
-      - X: 68749971
+      - X: 69999971
         Y: 50000000
-      - X: 61250000
+      - X: 60000000
         Y: 49999971
-      - X: 61250029
+      - X: 60000029
         Y: -80000000
-    - - X: -61250029
+    - - X: -60000029
         Y: -10000000
-      - X: -61250029
+      - X: -60000029
         Y: 50000000
-      - X: -68750000
+      - X: -70000000
         Y: 49999971
-      - X: -68749971
+      - X: -69999971
         Y: -10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -6.1250057, y: -1}
-      - {x: -6.1250057, y: 5}
-      - {x: -6.875, y: 4.9999943}
-      - {x: -6.8749943, y: -1}
-    - - {x: 6.8749943, y: -8}
-      - {x: 6.8749943, y: 5}
-      - {x: 6.125, y: 4.9999943}
-      - {x: 6.1250057, y: -8}
-    - - {x: 13.874993, y: -8}
-      - {x: 13.874993, y: 5}
-      - {x: 13.125, y: 4.9999943}
-      - {x: 13.125006, y: -8}
+    - - {x: -6.0000057, y: -1}
+      - {x: -6.0000057, y: 5}
+      - {x: -7, y: 4.9999943}
+      - {x: -6.9999943, y: -1}
+    - - {x: 6.9999943, y: -8}
+      - {x: 6.9999943, y: 5}
+      - {x: 6, y: 4.9999943}
+      - {x: 6.0000057, y: -8}
+    - - {x: 13.999993, y: -8}
+      - {x: 13.999993, y: 5}
+      - {x: 13, y: 4.9999943}
+      - {x: 13.000006, y: -8}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
 --- !u!50 &1677502607
@@ -48313,9 +48315,9 @@ GameObject:
   - component: {fileID: 1777443717}
   - component: {fileID: 1777443716}
   - component: {fileID: 1777443715}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (7)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52362,9 +52364,9 @@ GameObject:
   - component: {fileID: 1862380203}
   - component: {fileID: 1862380202}
   - component: {fileID: 1862380201}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (1)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58132,9 +58134,9 @@ GameObject:
   - component: {fileID: 1881431710}
   - component: {fileID: 1881431709}
   - component: {fileID: 1881431708}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (2)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58734,9 +58736,9 @@ GameObject:
   - component: {fileID: 1896586130}
   - component: {fileID: 1896586129}
   - component: {fileID: 1896586128}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (6)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62905,9 +62907,9 @@ GameObject:
   - component: {fileID: 2038666347}
   - component: {fileID: 2038666346}
   - component: {fileID: 2038666345}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death (3)
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63812,9 +63814,9 @@ GameObject:
   - component: {fileID: 2074388360}
   - component: {fileID: 2074388359}
   - component: {fileID: 2074388358}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: Death
-  m_TagString: Enemy
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64825,7 +64827,7 @@ PrefabInstance:
     - target: {fileID: 1558138816186315089, guid: 20c73a291d6787248969ccfe6ae71bd2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.5
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1558138816186315089, guid: 20c73a291d6787248969ccfe6ae71bd2,
         type: 3}
@@ -64889,7 +64891,7 @@ PrefabInstance:
     - target: {fileID: 6542668067520764400, guid: 9c75a84187506414c9be8b57f3875a2c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 160
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6542668067520764400, guid: 9c75a84187506414c9be8b57f3875a2c,
         type: 3}

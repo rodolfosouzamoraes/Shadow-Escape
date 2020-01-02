@@ -15,6 +15,7 @@ TagManager:
   - Door
   - Boss
   - Princess
+  - Death
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - Door
   - Boss
   - Princess
-  - 
+  - Death
   - 
   - 
   - 

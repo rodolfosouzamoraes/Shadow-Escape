@@ -7,12 +7,10 @@ public class CollisionBoss : MonoBehaviour
     [SerializeField] int lives = 8;
     [SerializeField] GameObject princess;
     [SerializeField] GameObject stage;
-
-    Vector2 positionDeath;
     private void Start()
     {
         princess.GetComponent<Rigidbody2D>().gravityScale = 0;
-        lives = PlayerPrefs.GetInt("CaverudosDeath") - PlayerPrefs.GetInt("TotalCaverudos");
+        lives = PlayerPrefs.GetInt("CaverudosDeath") - PlayerPrefs.GetInt("TotalCaverudos") + 4;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

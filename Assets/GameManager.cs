@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject camera;
     [SerializeField] int stage;
     [SerializeField] float waySpeed = 2f;
+    [SerializeField] int totalBatteryInGame;
+    [SerializeField] int totalCaverudo;
 
     [SerializeField] Vector2[] wayStage1;
     [SerializeField] Vector2[] wayStage2;
@@ -25,9 +27,18 @@ public class GameManager : MonoBehaviour
     int way = 0;
     MovimentPlayer movimentPlayer;
     
+    
     void Start()
     {
-        movimentPlayer = player.GetComponent<MovimentPlayer>();
+        totalBatteryInGame = GameObject.FindGameObjectsWithTag("Battery").Length;
+        totalCaverudo = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        PlayerPrefs.SetInt("TotalCaverudos", totalCaverudo);
+        PlayerPrefs.SetInt("TotalBattery", totalBatteryInGame);
+        PlayerPrefs.SetInt("TotalBatteryCollected", 0);
+        PlayerPrefs.SetInt("CaverudosDeath", 0);
+
+
+       movimentPlayer = player.GetComponent<MovimentPlayer>();
         movimentPlayer.isAlive = false;
         stage = 0;
         Invoke("StartGame", 4.5f);
@@ -100,7 +111,8 @@ public class GameManager : MonoBehaviour
                     if (stage > 4)
                     {
                         //Scene Final
-                        PlayerPrefs.SetInt("TotalBattery", 1);
+                        PlayerPrefs.SetInt("TotalBatteryCollected", player.GetComponent<CollectBattery>().GetTotalBattery());
+                        PlayerPrefs.SetInt("CaverudosDeath", player.GetComponent<CollectCaverudo>().GetTotalCaverudo());
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     }
                     else

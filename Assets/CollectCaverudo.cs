@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CollectCaverudo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int totalCaverudos = 0;
+
+    public void AddCaverudo()
     {
-        
+        totalCaverudos++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetTotalCaverudo()
     {
-        
+        return totalCaverudos;
     }
 }
