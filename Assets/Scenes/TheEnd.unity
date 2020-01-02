@@ -4926,6 +4926,7 @@ GameObject:
   - component: {fileID: 1133023924}
   - component: {fileID: 1133023925}
   - component: {fileID: 1133023926}
+  - component: {fileID: 1133023927}
   m_Layer: 18
   m_Name: Boss
   m_TagString: Boss
@@ -5076,9 +5077,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c76faaa3d48174c89dfc7b70919326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 8
   princess: {fileID: 517456183}
   stage: {fileID: 1320970640}
+--- !u!114 &1133023927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133023920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50f6ccbcb0d41247bb6d86db03fb585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shot: {fileID: 8647030809036492732, guid: 98f0f59c0826023469934a56ce6352f3, type: 3}
 --- !u!1 &1292579245
 GameObject:
   m_ObjectHideFlags: 0

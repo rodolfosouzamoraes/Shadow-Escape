@@ -90,11 +90,11 @@ public class CollisionPlayer : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void DamageBossPlayer()
+    public void DamagePlayer(int value)
     {
         if (movimentPlayer.isAlive)
         {
-            totalDamage+=3;
+            totalDamage+= value;
             if (totalDamage < totalLife)
             {
                 barLife.sprite = barlives[totalDamage];

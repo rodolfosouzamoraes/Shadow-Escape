@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
                     if (stage > 4)
                     {
                         //Scene Final
+                        PlayerPrefs.SetInt("TotalBattery", 1);
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     }
                     else

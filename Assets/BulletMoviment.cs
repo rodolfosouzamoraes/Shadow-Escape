@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletMoviment : MonoBehaviour
 {
     float controlThrow;
     float runSpeed = 7;
     Rigidbody2D myRigibody;
+    int sceneIndex;
     void Start()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         myRigibody = GetComponent<Rigidbody2D>();
     }
 
@@ -25,7 +28,15 @@ public class BulletMoviment : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Player":
-                collision.gameObject.GetComponent<CollisionPlayer>().DamagePlayer();
+                if(sceneIndex != 1)
+                {
+                    collision.gameObject.GetComponent<CollisionPlayer>().DamagePlayer(1);
+                }
+                else
+                {
+                    collision.gameObject.GetComponent<CollisionPlayer>().DamagePlayer();
+                }
+                
                 Destroy(gameObject);
                 break;
             case "Ground":

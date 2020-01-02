@@ -11,7 +11,7 @@ public class ManageTheEnd : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ShadowDown();
+        ShadowDown();
         Invoke("StartStage", 3f);
     }
 
@@ -29,9 +29,8 @@ public class ManageTheEnd : MonoBehaviour
         shadowTilemap.color = new Color(0, 0, 0, 1 - (valueShadow / 255));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DestroyShadow()
     {
-        
+        Destroy(shadowTilemap);
     }
 }
