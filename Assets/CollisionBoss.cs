@@ -5,6 +5,15 @@ using UnityEngine;
 public class CollisionBoss : MonoBehaviour
 {
     [SerializeField] int lives = 8;
+    [SerializeField] GameObject princess;
+    [SerializeField] GameObject stage;
+
+    Vector2 positionDeath;
+    private void Start()
+    {
+        princess.GetComponent<Rigidbody2D>().gravityScale = 0;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.GetType() == typeof(BoxCollider2D))
@@ -14,15 +23,22 @@ public class CollisionBoss : MonoBehaviour
             collision.gameObject.GetComponent<CollisionPlayer>().SoftLeapPlayer();
             if (lives <= 0)
             {
-                Destroy(gameObject);
-                //End Game
-                //BossDeath
+                GetComponent<Animator>().SetBool("Boss", false);
+                GetComponent<Animator>().SetBool("Death", true);
+                Destroy(GetComponent<BoxCollider2D>());
+
             }
+
         }
         else if (collision.collider.GetType() == typeof(CapsuleCollider2D))
         {
             collision.gameObject.GetComponent<CollisionPlayer>().DamageBossPlayer();
         }
-        
+    }
+
+    void FreePrincess()
+    {
+        princess.transform.SetParent(stage.transform);
+        princess.GetComponent<Rigidbody2D>().gravityScale = 1;
     }
 }

@@ -82,10 +82,9 @@ public class MovimentPlayer : MonoBehaviour
         else
         {
             myRigibody.velocity = new Vector2(0, myRigibody.velocity.y);
-            if (myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
-                myAnimator.SetBool("run", false);
-                myAnimator.SetBool("idle", true);
-                myAnimator.SetBool("jump", false);
+            if (myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            {
+                AnimationIdle();
             }
             else
             {
@@ -94,6 +93,13 @@ public class MovimentPlayer : MonoBehaviour
             }
             
         }
+    }
+
+    public void AnimationIdle()
+    {
+        myAnimator.SetBool("run", false);
+        myAnimator.SetBool("idle", true);
+        myAnimator.SetBool("jump", false);
     }
 
     private void MovimentX(float controlThrow)
