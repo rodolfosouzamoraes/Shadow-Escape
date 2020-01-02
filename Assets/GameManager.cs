@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector2[] wayStage1;
     [SerializeField] Vector2[] wayStage2;
     [SerializeField] Vector2[] wayStage3;
+    [SerializeField] Vector2[] wayStage4;
+    [SerializeField] Vector2[] wayStage5;
 
     bool isStartWay = false;
     int way = 0;
@@ -69,7 +71,13 @@ public class GameManager : MonoBehaviour
                         WayPoint(wayStage3);
                         break;
                     case 3:
-                        //WayPoint(wayStage3);
+                        WayPoint(wayStage3);
+                        break;
+                    case 4:
+                        WayPoint(wayStage4);
+                        break;
+                    case 5:
+                        WayPoint(wayStage5);
                         break;
                 }
                 
