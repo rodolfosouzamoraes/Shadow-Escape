@@ -29,34 +29,7 @@ public class MovimentPlayer : MonoBehaviour
         if (!isAlive) { return; }
 
         Run();
-        ClimpLadder();
         Jump();
-        
-    }
-
-    private void ClimpLadder()
-    {
-        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
-        {
-            isLadder = false;
-            myRigibody.gravityScale = gravityScaleAtStart;
-            return;
-        }
-        else
-        {
-            if (!isLadder)
-            {
-                isLadder = true;
-                myRigibody.velocity = new Vector2(0, 0);
-                myRigibody.gravityScale = 0;
-            }
-        }
-
-        float contrlThrow = Input.GetAxis("Vertical");
-        Vector2 climbVelocity = new Vector2(myRigibody.velocity.x, contrlThrow * climbSpeed);
-        myRigibody.velocity = climbVelocity;
-        myRigibody.gravityScale = 0;
-
     }
 
     private void Jump()

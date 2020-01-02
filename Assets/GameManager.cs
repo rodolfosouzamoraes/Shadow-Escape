@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         isStartWay = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (movimentPlayer.isAlive)
         {
