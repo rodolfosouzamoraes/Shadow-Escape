@@ -30,7 +30,7 @@ public class BulletMoviment : MonoBehaviour
             case "Player":
                 if(sceneIndex != 1)
                 {
-                    collision.gameObject.GetComponent<CollisionPlayer>().DamagePlayer(1);
+                    collision.gameObject.GetComponent<CollisionPlayer>().DamagePlayer(2);
                 }
                 else
                 {

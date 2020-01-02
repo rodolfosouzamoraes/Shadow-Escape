@@ -28,7 +28,7 @@ public class BossShot : MonoBehaviour
 
     private static void SetMovimentShot(GameObject shot1)
     {
-        shot1.transform.localScale = new Vector2(2.7f, 2.7f);
+        shot1.transform.localScale = new Vector3(2.7f, 2.7f,1);
         BulletMoviment bm = shot1.GetComponent<BulletMoviment>();
         bm.ChangeControlTrow(-1);
     }

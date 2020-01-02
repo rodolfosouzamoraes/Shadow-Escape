@@ -5,32 +5,27 @@ using UnityEngine.Tilemaps;
 
 public class ManageTheEnd : MonoBehaviour
 {
-    [SerializeField] Tilemap shadowTilemap;
     [SerializeField] GameObject player;
     [SerializeField] GameObject boss;
+    [SerializeField] Light light;
     // Start is called before the first frame update
     void Start()
     {
-        ShadowDown();
+        PlayerPrefs.SetInt("TotalBattery",16);
+        PlayerPrefs.SetInt("TotalBatteryCollected",16);
+
         Invoke("StartStage", 3f);
+        int totalBattery = PlayerPrefs.GetInt("TotalBattery");
+        int totalBatteryCollected = PlayerPrefs.GetInt("TotalBatteryCollected");
+        float difTotalBattery = (116f/totalBattery)* totalBatteryCollected;
+        light.spotAngle += difTotalBattery;
     }
 
     private void StartStage()
     {
         player.GetComponent<MovimentPlayer>().isAlive = true;
         boss.GetComponent<Animator>().SetBool("Boss", true);
-    }
+        
 
-    private void ShadowDown()
-    {
-        int totalBattery = PlayerPrefs.GetInt("TotalBattery");
-        int totalBatteryCollected = PlayerPrefs.GetInt("TotalBatteryCollected");
-        float valueShadow = (255 / totalBattery) * totalBatteryCollected;
-        shadowTilemap.color = new Color(0, 0, 0, 1 - (valueShadow / 255));
-    }
-
-    public void DestroyShadow()
-    {
-        Destroy(shadowTilemap);
     }
 }

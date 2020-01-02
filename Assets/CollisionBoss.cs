@@ -22,7 +22,6 @@ public class CollisionBoss : MonoBehaviour
             collision.gameObject.GetComponent<CollisionPlayer>().SoftLeapPlayer();
             if (lives <= 0)
             {
-                FindObjectOfType<ManageTheEnd>().DestroyShadow();
                 GetComponent<Animator>().SetBool("Boss", false);
                 GetComponent<Animator>().SetBool("Death", true);
                 Destroy(GetComponent<BoxCollider2D>());
