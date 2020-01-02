@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -71,12 +72,9 @@ public class GameManager : MonoBehaviour
                         WayPoint(wayStage3);
                         break;
                     case 3:
-                        WayPoint(wayStage3);
-                        break;
-                    case 4:
                         WayPoint(wayStage4);
                         break;
-                    case 5:
+                    case 4:
                         WayPoint(wayStage5);
                         break;
                 }
@@ -99,14 +97,33 @@ public class GameManager : MonoBehaviour
                 {
                     //Next Stage
                     stage++;
-                    player.GetComponent<CollisionPlayer>().isFinishStage = false;
-                    shadow.GetComponent<ExitShadowArea>().isActived = false;
-                    movimentPlayer.isAlive = false;
-                    player.transform.position = positionPlayer[stage + 1];
-                    shadow.transform.position = positionShadowStage[stage + 1];
-                    camera.transform.position = positionCamera[stage + 1];
-                    shadow.GetComponent<Animator>().Play("Shadow", -1, 0);
-                    Invoke("NextStage", 4.5f);
+                    if (stage > 4)
+                    {
+                        //Scene Final
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    }
+                    else
+                    {
+                        player.GetComponent<CollisionPlayer>().isFinishStage = false;
+                        shadow.GetComponent<ExitShadowArea>().isActived = false;
+                        movimentPlayer.isAlive = false;
+                        if (stage > 3)
+                        {
+                            player.transform.position = positionPlayer[0];
+                            shadow.transform.position = positionShadowStage[0];
+                            camera.transform.position = positionCamera[0];
+                        }
+                        else
+                        {
+                            player.transform.position = positionPlayer[stage + 1];
+                            shadow.transform.position = positionShadowStage[stage + 1];
+                            camera.transform.position = positionCamera[stage + 1];
+                        }
+
+                        shadow.GetComponent<Animator>().Play("Shadow", -1, 0);
+                        Invoke("NextStage", 4.5f);
+                    }
+                    
                 }
                 return;
             }
