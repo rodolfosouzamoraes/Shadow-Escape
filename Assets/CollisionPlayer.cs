@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionPlayer : MonoBehaviour
 {
@@ -56,6 +57,14 @@ public class CollisionPlayer : MonoBehaviour
         Invoke("ReloadLevel", 1.5f);
     }
 
+    public void KillPlayer(bool v)
+    {
+        myAnimator.SetBool("death", v);
+        movimentPlayer.isAlive = false;
+        myRigibody.velocity = new Vector2(damageForce * transform.localScale.x * -1, damageForce);
+        Invoke("ResetStage", 1.5f);
+    }
+
     public void RestoreLife()
     {
         totalDamage = 0;
@@ -74,6 +83,33 @@ public class CollisionPlayer : MonoBehaviour
 
         gm.ResetStage();
 
+    }
+
+    void ResetStage()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void DamageBossPlayer()
+    {
+        if (movimentPlayer.isAlive)
+        {
+            totalDamage+=3;
+            if (totalDamage < totalLife)
+            {
+                barLife.sprite = barlives[totalDamage];
+            }
+            if (totalDamage >= totalLife - 1)
+            {
+                barLife.sprite = barlives[barlives.Length-1];
+                KillPlayer(true);
+            }
+            else
+            {
+                myRigibody.velocity = new Vector2(damageForce * transform.localScale.x * -1, damageForce);
+            }
+           
+        }
     }
 
 

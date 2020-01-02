@@ -4377,9 +4377,11 @@ GameObject:
   - component: {fileID: 1133023922}
   - component: {fileID: 1133023921}
   - component: {fileID: 1133023924}
-  m_Layer: 0
+  - component: {fileID: 1133023925}
+  - component: {fileID: 1133023926}
+  m_Layer: 18
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4493,6 +4495,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &1133023925
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133023920}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1133023926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133023920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c76faaa3d48174c89dfc7b70919326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 8
 --- !u!1001 &1554817911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4562,6 +4598,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c75a84187506414c9be8b57f3875a2c, type: 3}
+--- !u!1 &1748803753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1748803755}
+  - component: {fileID: 1748803754}
+  m_Layer: 0
+  m_Name: ManagerTheEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1748803754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748803753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac37df5f9892022428b0b1f45102ccaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadowTilemap: {fileID: 8676309621176383011}
+  player: {fileID: 1988869368}
+  boss: {fileID: 1133023920}
+--- !u!4 &1748803755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748803753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0674396, y: -0.7467768, z: -192.22699}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1825797799
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,7 +4760,7 @@ PrefabInstance:
     - target: {fileID: 6801727016771822368, guid: b43063c2630bee748a3ab19368da78ca,
         type: 3}
       propertyPath: isAlive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43063c2630bee748a3ab19368da78ca, type: 3}
@@ -9835,3 +9917,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9087837735702473756, guid: 1f5e0134fca91884a8dfd99c1118b3f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1f5e0134fca91884a8dfd99c1118b3f2, type: 3}
+--- !u!1839735485 &8676309621176383011 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 9087837735702473758, guid: 1f5e0134fca91884a8dfd99c1118b3f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8676309621176383010}
+  m_PrefabAsset: {fileID: 0}
