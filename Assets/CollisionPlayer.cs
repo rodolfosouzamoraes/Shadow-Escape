@@ -51,6 +51,7 @@ public class CollisionPlayer : MonoBehaviour
 
     public void KillPlayer()
     {
+        barLife.sprite = barlives[barlives.Length-1];
         myAnimator.SetBool("death", true);
         movimentPlayer.isAlive = false;
         myRigibody.velocity = new Vector2(damageForce * transform.localScale.x*-1, damageForce);
@@ -59,6 +60,7 @@ public class CollisionPlayer : MonoBehaviour
 
     public void KillPlayer(bool v)
     {
+        barLife.sprite = barlives[barlives.Length - 1];
         myAnimator.SetBool("death", v);
         movimentPlayer.isAlive = false;
         myRigibody.velocity = new Vector2(damageForce * transform.localScale.x * -1, damageForce);

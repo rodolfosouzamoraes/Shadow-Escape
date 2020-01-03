@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
                         else
                         {
                             player.transform.position = positionPlayer[stage + 1];
-                            shadow.transform.position = new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
+                            shadow.transform.position = new Vector3(positionShadowStage[stage + 1].x, positionShadowStage[stage + 1].y, -5.83f);
                             camera.transform.position = positionCamera[stage + 1];
                         }
 
@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
         movimentPlayer.isAlive = true;
         StartWay();
         player.transform.position = positionPlayer[stage];
-        shadow.transform.position = positionShadowStage[stage];
+        shadow.transform.position = new Vector3(positionShadowStage[stage].x, positionShadowStage[stage].y, -5.83f);
         camera.transform.position = positionCamera[stage];
     }
 
