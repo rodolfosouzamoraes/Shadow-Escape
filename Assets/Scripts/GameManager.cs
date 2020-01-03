@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+        NextLevel();
     }
 
     private void FixedUpdate()
@@ -113,44 +114,48 @@ public class GameManager : MonoBehaviour
             {
                 way = 0;
                 PauseWay();
-                if (player.GetComponent<CollisionPlayer>().isFinishStage)
-                {
-                    //Next Stage
-                    stage++;
-                    if (stage > 4)
-                    {
-                        //Scene Final
-                        PlayerPrefs.SetInt("TotalBatteryCollected", player.GetComponent<CollectBattery>().GetTotalBattery());
-                        PlayerPrefs.SetInt("CaverudosDeath", player.GetComponent<CollectCaverudo>().GetTotalCaverudo());
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                    }
-                    else
-                    {
-                        player.GetComponent<CollisionPlayer>().isFinishStage = false;
-                        shadow.GetComponent<ExitShadowArea>().isActived = false;
-                        movimentPlayer.isAlive = false;
-                        if (stage > 3)
-                        {
-                            player.transform.position = positionPlayer[0];
-                            shadow.transform.position = new Vector3(positionShadowStage[0].x, positionShadowStage[0].y,-5.83f);
-                            camera.transform.position = positionCamera[0];
-                        }
-                        else
-                        {
-                            player.transform.position = positionPlayer[stage + 1];
-                            shadow.transform.position = new Vector3(positionShadowStage[stage + 1].x, positionShadowStage[stage + 1].y, -5.83f);
-                            camera.transform.position = positionCamera[stage + 1];
-                        }
-
-                        shadow.GetComponent<Animator>().Play("Light", -1, 0);
-                        Invoke("NextStage", 4.5f);
-                    }
-                    
-                }
                 return;
             }
         }
         shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, new Vector3(wayStage[way].x, wayStage[way].y, -5.83f), Time.deltaTime * waySpeed);
+    }
+
+    public void NextLevel()
+    {
+        if(player.GetComponent<CollisionPlayer>().isFinishStage && !isStartWay)
+        {
+            stage++;
+            if (stage > 5)
+            {
+                //Scene Final
+                PlayerPrefs.SetInt("TotalBatteryCollected", player.GetComponent<CollectBattery>().GetTotalBattery());
+                PlayerPrefs.SetInt("CaverudosDeath", player.GetComponent<CollectCaverudo>().GetTotalCaverudo());
+                SceneManager.LoadScene(2);
+            }
+            else
+            {
+                player.GetComponent<CollisionPlayer>().isFinishStage = false;
+                shadow.GetComponent<ExitShadowArea>().isActived = false;
+                movimentPlayer.isAlive = false;
+                movimentPlayer.AnimationIdle();
+                if (stage > 3)
+                {
+                    player.transform.position = positionPlayer[0];
+                    shadow.transform.position = new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
+                    camera.transform.position = positionCamera[0];
+                }
+                else
+                {
+                    player.transform.position = positionPlayer[stage + 1];
+                    shadow.transform.position = new Vector3(positionShadowStage[stage + 1].x, positionShadowStage[stage + 1].y, -5.83f);
+                    camera.transform.position = positionCamera[stage + 1];
+                }
+
+                shadow.GetComponent<Animator>().Play("Light", -1, 0);
+                Invoke("NextStage", 4.5f);
+            }
+        
+        }
     }
 
     public void ResetStage(Vector3 checkpoint, bool isCheckpoint, int wayPoint)
