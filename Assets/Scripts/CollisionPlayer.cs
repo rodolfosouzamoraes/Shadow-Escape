@@ -16,11 +16,13 @@ public class CollisionPlayer : MonoBehaviour
     Rigidbody2D myRigibody;
     Animator myAnimator;
     MovimentPlayer movimentPlayer;
+    PlayAudio playAudio;
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         movimentPlayer = GetComponent<MovimentPlayer>();
+        playAudio = GetComponent<PlayAudio>();
         totalLife = barlives.Length;
         totalDamage = 0;
         isFinishStage = false;
@@ -39,6 +41,7 @@ public class CollisionPlayer : MonoBehaviour
             totalDamage++;
             if (totalDamage < totalLife)
             {
+                playAudio.Play(1);
                 barLife.sprite = barlives[totalDamage];
             }
             if (totalDamage >= totalLife-1)
@@ -51,6 +54,7 @@ public class CollisionPlayer : MonoBehaviour
 
     public void KillPlayer()
     {
+        playAudio.Play(2);
         barLife.sprite = barlives[barlives.Length-1];
         myAnimator.SetBool("death", true);
         movimentPlayer.isAlive = false;
@@ -60,6 +64,7 @@ public class CollisionPlayer : MonoBehaviour
 
     public void KillPlayer(bool v)
     {
+        playAudio.Play(2);
         barLife.sprite = barlives[barlives.Length - 1];
         myAnimator.SetBool("death", v);
         movimentPlayer.isAlive = false;
@@ -99,6 +104,7 @@ public class CollisionPlayer : MonoBehaviour
             totalDamage+= value;
             if (totalDamage < totalLife)
             {
+                playAudio.Play(1);
                 barLife.sprite = barlives[totalDamage];
             }
             if (totalDamage >= totalLife - 1)

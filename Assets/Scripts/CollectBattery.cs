@@ -8,6 +8,7 @@ public class CollectBattery : MonoBehaviour
 
     public void AddBattery()
     {
+        GetComponent<PlayAudio>().Play(3);
         totalBattery++;
     }
 

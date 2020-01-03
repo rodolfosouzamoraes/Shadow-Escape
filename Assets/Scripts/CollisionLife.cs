@@ -12,6 +12,7 @@ public class CollisionLife : MonoBehaviour
             CollisionPlayer cp = collision.gameObject.GetComponent<CollisionPlayer>();
             if (cp.totalDamage > 0)
             {
+                cp.GetComponent<PlayAudio>().Play(4);
                 cp.RestoreLife();
                 Destroy(gameObject);
             }

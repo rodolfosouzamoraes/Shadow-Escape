@@ -13,6 +13,7 @@ public class MovimentPlayer : MonoBehaviour
     BoxCollider2D myBoxCollider;
     CapsuleCollider2D myCapsuleCollider;
     Animator myAnimator;
+    PlayAudio playAudio;
     float gravityScaleAtStart;
     public bool isAlive;
     bool isLadder;
@@ -22,6 +23,7 @@ public class MovimentPlayer : MonoBehaviour
         myBoxCollider = GetComponent<BoxCollider2D>();
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         myAnimator = GetComponent<Animator>();
+        playAudio = GetComponent<PlayAudio>();
         gravityScaleAtStart = myRigibody.gravityScale;
     }
     void Update()
@@ -38,6 +40,7 @@ public class MovimentPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            playAudio.Play(0);
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myRigibody.velocity += jumpVelocityToAdd;
         }

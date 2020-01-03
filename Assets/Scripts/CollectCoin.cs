@@ -8,6 +8,7 @@ public class CollectCoin : MonoBehaviour
     
     public void AddCoin()
     {
+        GetComponent<PlayAudio>().Play(5);
         totalCoins++;
     }
 }
