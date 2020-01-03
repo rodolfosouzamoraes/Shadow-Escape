@@ -9,4 +9,12 @@ public class CanvasHistory : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartSceneGame();
+        }
+    }
 }

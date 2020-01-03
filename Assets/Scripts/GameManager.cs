@@ -65,6 +65,14 @@ public class GameManager : MonoBehaviour
         isStartWay = false;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     private void FixedUpdate()
     {
         if (movimentPlayer.isAlive)
