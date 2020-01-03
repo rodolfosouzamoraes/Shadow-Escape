@@ -8,7 +8,7 @@ public class CollisionCoin : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<CollectCoin>().AddCoin();
+            collision.gameObject.GetComponent<CollectCoin>().CheckPoint();
             Destroy(gameObject);
         }
     }

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector2[] wayStage5;
 
     bool isStartWay = false;
-    int way = 0;
+    public int way = 0;
     MovimentPlayer movimentPlayer;
     
     
@@ -153,13 +153,46 @@ public class GameManager : MonoBehaviour
         shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, new Vector3(wayStage[way].x, wayStage[way].y, -5.83f), Time.deltaTime * waySpeed);
     }
 
-    public void ResetStage()
+    public void ResetStage(Vector3 checkpoint, bool isCheckpoint, int wayPoint)
     {
-        way = 0;
-        player.transform.position = positionPlayer[stage];
-        shadow.transform.position = positionShadowStage[stage];
-        camera.transform.position = positionCamera[stage];
+        if (!isCheckpoint)
+        {
+            way = 0;
+            player.transform.position = positionPlayer[stage];
+            shadow.transform.position = positionShadowStage[stage];
+            camera.transform.position = positionCamera[stage];
+
+        }
+        else
+        {
+            way = wayPoint;
+            switch (stage)
+            {
+                case 0:
+                    shadow.transform.position = wayStage1[wayPoint];
+                    player.transform.position = new Vector3(wayStage1[wayPoint].x, wayStage1[wayPoint].y, checkpoint.z);
+                    break;
+                case 1:
+                    shadow.transform.position = wayStage2[wayPoint];
+                    player.transform.position = new Vector3(wayStage2[wayPoint].x, wayStage2[wayPoint].y, checkpoint.z);
+                    break;
+                case 2:
+                    shadow.transform.position = wayStage3[wayPoint];
+                    player.transform.position = new Vector3(wayStage3[wayPoint].x, wayStage3[wayPoint].y, checkpoint.z);
+                    break;
+                case 3:
+                    shadow.transform.position = wayStage4[wayPoint];
+                    player.transform.position = new Vector3(wayStage4[wayPoint].x, wayStage4[wayPoint].y, checkpoint.z);
+                    break;
+                case 4:
+                    shadow.transform.position = wayStage5[wayPoint];
+                    player.transform.position = new Vector3(wayStage5[wayPoint].x, wayStage5[wayPoint].y, checkpoint.z);
+                    break;
+            }
+            camera.transform.position = positionCamera[stage];
+        }
         Invoke("EnablePlayer", 1f);
+
     }
 
     void EnablePlayer()
@@ -169,6 +202,11 @@ public class GameManager : MonoBehaviour
 
     void NextStage()
     {
+        CollectCoin cc = player.GetComponent<CollectCoin>();
+        cc.checkpoint = new Vector3(0, 0, 0);
+        cc.isCheckPoint = false;
+        cc.wayPoint = 0;
+
         shadow.GetComponent<ExitShadowArea>().isActived = true;
         movimentPlayer.isAlive = true;
         StartWay();

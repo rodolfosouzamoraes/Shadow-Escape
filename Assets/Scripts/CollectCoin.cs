@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CollectCoin : MonoBehaviour
 {
-    [SerializeField] int totalCoins = 0;
-    
-    public void AddCoin()
+    [SerializeField] public Vector3 checkpoint;
+    [SerializeField] public bool isCheckPoint;
+    [SerializeField] public int wayPoint;
+    public void CheckPoint()
     {
         GetComponent<PlayAudio>().Play(5);
-        totalCoins++;
+        checkpoint = transform.position;
+        isCheckPoint = true;
+        wayPoint = GameObject.FindObjectOfType<GameManager>().way;
     }
 }

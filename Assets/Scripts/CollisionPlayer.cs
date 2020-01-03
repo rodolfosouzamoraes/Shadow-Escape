@@ -87,8 +87,9 @@ public class CollisionPlayer : MonoBehaviour
         myAnimator.SetBool("run", false);
         myAnimator.SetBool("jump", false);
         myAnimator.SetBool("death", false);
+        CollectCoin collectCoin = GetComponent<CollectCoin>();
 
-        gm.ResetStage();
+        gm.ResetStage(collectCoin.checkpoint, collectCoin.isCheckPoint, collectCoin.wayPoint);
 
     }
 
