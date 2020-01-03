@@ -22,10 +22,16 @@ public class CollisionBoss : MonoBehaviour
             collision.gameObject.GetComponent<CollisionPlayer>().SoftLeapPlayer();
             if (lives <= 0)
             {
+                GetComponent<PlayAudio>().Play(1);
                 GetComponent<Animator>().SetBool("Boss", false);
                 GetComponent<Animator>().SetBool("Death", true);
+                FindObjectOfType<ManageTheEnd>().Finish();
                 Destroy(GetComponent<BoxCollider2D>());
 
+            }
+            else
+            {
+                GetComponent<PlayAudio>().Play(0);
             }
 
         }

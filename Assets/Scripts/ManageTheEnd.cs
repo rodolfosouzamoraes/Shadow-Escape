@@ -8,11 +8,14 @@ public class ManageTheEnd : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject boss;
     [SerializeField] Light light;
+    [SerializeField] AudioSource ambientMuisc;
+
+    bool isFinish = false;
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("TotalBattery",16);
-        PlayerPrefs.SetInt("TotalBatteryCollected",16);
+        //PlayerPrefs.SetInt("TotalBattery",16);
+        //PlayerPrefs.SetInt("TotalBatteryCollected",16);
 
         Invoke("StartStage", 3f);
         int totalBattery = PlayerPrefs.GetInt("TotalBattery");
@@ -27,5 +30,23 @@ public class ManageTheEnd : MonoBehaviour
         boss.GetComponent<Animator>().SetBool("Boss", true);
         
 
+    }
+
+    private void Update()
+    {
+        if (isFinish)
+        {
+            if (ambientMuisc.volume > 0)
+            {
+                ambientMuisc.volume -= Time.deltaTime;
+            }
+
+        }
+        
+    }
+
+    public void Finish()
+    {
+        isFinish = true;
     }
 }

@@ -18,6 +18,7 @@ public class CollisionPrincess : MonoBehaviour
         {
             collision.gameObject.GetComponent<MovimentPlayer>().isAlive = false;
             collision.gameObject.GetComponent<MovimentPlayer>().AnimationIdle();
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetBool("Finish", true);
             theEnd.SetActive(true);
         }
     }
