@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
 
     bool isPlaying = false;
 
+    
+
     private void Start()
     {
         int theEnd = PlayerPrefs.GetInt("EndGame");
@@ -51,4 +53,6 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+
 }

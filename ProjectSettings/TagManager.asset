@@ -16,6 +16,7 @@ TagManager:
   - Boss
   - Princess
   - Death
+  - VolumeAudios
   layers:
   - Default
   - TransparentFX
