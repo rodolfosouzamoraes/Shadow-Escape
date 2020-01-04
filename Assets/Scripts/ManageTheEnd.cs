@@ -20,8 +20,12 @@ public class ManageTheEnd : MonoBehaviour
         Invoke("StartStage", 3f);
         int totalBattery = PlayerPrefs.GetInt("TotalBattery");
         int totalBatteryCollected = PlayerPrefs.GetInt("TotalBatteryCollected");
-        float difTotalBattery = (116f/totalBattery)* totalBatteryCollected;
-        light.spotAngle += difTotalBattery;
+        if (totalBatteryCollected != 0)
+        {
+            float difTotalBattery = (116f / totalBattery) * totalBatteryCollected;
+            light.spotAngle += difTotalBattery;
+        }
+        
     }
 
     private void StartStage()
