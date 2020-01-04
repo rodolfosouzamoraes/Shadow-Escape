@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
         if(player.GetComponent<CollisionPlayer>().isFinishStage && !isStartWay)
         {
             stage++;
-            if (stage > 5)
+            if (stage > 4)
             {
                 //Scene Final
                 PlayerPrefs.SetInt("TotalBatteryCollected", player.GetComponent<CollectBattery>().GetTotalBattery());
@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
                 shadow.GetComponent<ExitShadowArea>().isActived = false;
                 movimentPlayer.isAlive = false;
                 movimentPlayer.AnimationIdle();
+
                 if (stage > 3)
                 {
                     player.transform.position = positionPlayer[0];
@@ -150,11 +151,12 @@ public class GameManager : MonoBehaviour
                     shadow.transform.position = new Vector3(positionShadowStage[stage + 1].x, positionShadowStage[stage + 1].y, -5.83f);
                     camera.transform.position = positionCamera[stage + 1];
                 }
-
                 shadow.GetComponent<Animator>().Play("Light", -1, 0);
                 Invoke("NextStage", 4.5f);
+
+
             }
-        
+
         }
     }
 

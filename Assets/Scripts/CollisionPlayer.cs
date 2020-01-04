@@ -54,22 +54,30 @@ public class CollisionPlayer : MonoBehaviour
 
     public void KillPlayer()
     {
-        playAudio.Play(2);
-        barLife.sprite = barlives[barlives.Length-1];
-        myAnimator.SetBool("death", true);
-        movimentPlayer.isAlive = false;
-        myRigibody.velocity = new Vector2(damageForce * transform.localScale.x*-1, damageForce);
-        Invoke("ReloadLevel", 1.5f);
+        if (movimentPlayer.isAlive)
+        {
+            playAudio.Play(2);
+            barLife.sprite = barlives[barlives.Length - 1];
+            myAnimator.SetBool("death", true);
+            movimentPlayer.isAlive = false;
+            myRigibody.velocity = new Vector2(damageForce * transform.localScale.x * -1, damageForce);
+            Invoke("ReloadLevel", 1.5f);
+        }
+        
     }
 
     public void KillPlayer(bool v)
     {
-        playAudio.Play(2);
-        barLife.sprite = barlives[barlives.Length - 1];
-        myAnimator.SetBool("death", v);
-        movimentPlayer.isAlive = false;
-        myRigibody.velocity = new Vector2(damageForce * transform.localScale.x * -1, damageForce);
-        Invoke("ResetStage", 1.5f);
+        if (movimentPlayer.isAlive)
+        {
+            playAudio.Play(2);
+            barLife.sprite = barlives[barlives.Length - 1];
+            myAnimator.SetBool("death", v);
+            movimentPlayer.isAlive = false;
+            myRigibody.velocity = new Vector2(damageForce * transform.localScale.x * -1, damageForce);
+            Invoke("ResetStage", 1.5f);
+        }
+        
     }
 
     public void RestoreLife()

@@ -8,8 +8,22 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject canvasMenu;
     [SerializeField] GameObject canvasCredits;
     [SerializeField] GameObject canvasTransition;
+    [SerializeField] GameObject princess;
 
     bool isPlaying = false;
+
+    private void Start()
+    {
+        int theEnd = PlayerPrefs.GetInt("EndGame");
+        if (theEnd == 1)
+        {
+            princess.SetActive(true);
+        }
+        else
+        {
+            princess.SetActive(false);
+        }
+    }
 
     public void ClickButtonCredits()
     {
