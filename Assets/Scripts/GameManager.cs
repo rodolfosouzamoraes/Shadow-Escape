@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        Cursor.visible = false;
         totalBatteryInGame = GameObject.FindGameObjectsWithTag("Battery").Length;
         totalCaverudo = GameObject.FindGameObjectsWithTag("Enemy").Length;
         PlayerPrefs.SetInt("TotalCaverudos", totalCaverudo);

@@ -16,7 +16,7 @@ public class ManageTheEnd : MonoBehaviour
     {
         //PlayerPrefs.SetInt("TotalBattery",16);
         //PlayerPrefs.SetInt("TotalBatteryCollected",16);
-
+        Cursor.visible = false;
         Invoke("StartStage", 3f);
         int totalBattery = PlayerPrefs.GetInt("TotalBattery");
         int totalBatteryCollected = PlayerPrefs.GetInt("TotalBatteryCollected");

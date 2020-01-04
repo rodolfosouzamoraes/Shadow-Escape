@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = true;
         int theEnd = PlayerPrefs.GetInt("EndGame");
         if (theEnd == 1)
         {
