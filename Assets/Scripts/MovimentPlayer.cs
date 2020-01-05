@@ -65,22 +65,23 @@ public class MovimentPlayer : MonoBehaviour
     {
         if (!myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {return;}
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        float jump = Input.GetAxis("Jump");
+
+        if (jump!=0)
         {
             playAudio.Play(0);
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
-            myRigibody.velocity += jumpVelocityToAdd;
+            myRigibody.velocity = jumpVelocityToAdd;
         }
     }
 
     private void Run()
     {
-        if (Input.GetKey(KeyCode.D))
+        float movimentX = Input.GetAxis("Horizontal");
+
+        if (movimentX != 0)
         {
-            MovimentX(1);
-        }else if (Input.GetKey(KeyCode.A))
-        {
-            MovimentX(-1);
+            MovimentX(movimentX);
         }
         else
         {
@@ -94,7 +95,6 @@ public class MovimentPlayer : MonoBehaviour
                 myAnimator.SetBool("idle", false);
                 myAnimator.SetBool("jump", true);
             }
-            
         }
     }
 
@@ -107,6 +107,14 @@ public class MovimentPlayer : MonoBehaviour
 
     private void MovimentX(float controlThrow)
     {
+        //if (controlThrow > 0)
+        //{
+        //    controlThrow = 1;
+        //}
+        //else if (controlThrow < 0)
+        //{
+        //    controlThrow = -1;
+        //}
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigibody.velocity.y);
         myRigibody.velocity = playerVelocity;
         Vector3 novoScale = new Vector3(controlThrow, transform.localScale.y,1);
