@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+using UnityEngine.SceneManagement;
 public class ManageTheEnd : MonoBehaviour
 {
     [SerializeField] GameObject player;
@@ -52,5 +52,10 @@ public class ManageTheEnd : MonoBehaviour
     public void Finish()
     {
         isFinish = true;
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
