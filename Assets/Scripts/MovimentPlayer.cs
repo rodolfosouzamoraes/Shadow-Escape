@@ -31,13 +31,13 @@ public class MovimentPlayer : MonoBehaviour
         playAudio = GetComponent<PlayAudio>();
         gravityScaleAtStart = myRigibody.gravityScale;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (!isAlive) { return; }
 
-        Run();
-        ClimpLadder();
-        Jump();
+        //Run();
+        //ClimpLadder();
+        //Jump();
         MovimentDirectionals();
     }
 
@@ -168,6 +168,7 @@ public class MovimentPlayer : MonoBehaviour
 
     public void MovimentJump()
     {
+        if (!isAlive) { return; }
         if (!myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
 
         playAudio.Play(0);

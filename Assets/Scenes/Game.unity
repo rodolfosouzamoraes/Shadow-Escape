@@ -5396,14 +5396,14 @@ RectTransform:
   m_GameObject: {fileID: 574461166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2789, y: 1.2789, z: 1.2789}
   m_Children: []
   m_Father: {fileID: 1209517329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -527, y: -243}
+  m_AnchoredPosition: {x: -564.65, y: -286}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574461168
@@ -11118,14 +11118,14 @@ RectTransform:
   m_GameObject: {fileID: 776346805}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2789, y: 1.2789, z: 1.2789}
   m_Children: []
   m_Father: {fileID: 1209517329}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257, y: -243}
+  m_AnchoredPosition: {x: -219.35, y: -286}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776346807
@@ -17113,14 +17113,14 @@ RectTransform:
   m_GameObject: {fileID: 860002146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2789, y: 1.2789, z: 1.2789}
   m_Children: []
   m_Father: {fileID: 1209517329}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -392.00003, y: -243}
+  m_AnchoredPosition: {x: -392, y: -286}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &860002148
@@ -44026,14 +44026,14 @@ RectTransform:
   m_GameObject: {fileID: 1252423463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1.2789, y: 1.2789, z: 1.2789}
   m_Children: []
   m_Father: {fileID: 1209517329}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 426, y: -243}
+  m_AnchoredPosition: {x: 426, y: -286}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1252423465
@@ -45072,14 +45072,14 @@ RectTransform:
   m_GameObject: {fileID: 1341937110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2789, y: 1.2789, z: 1.2789}
   m_Children: []
   m_Father: {fileID: 1209517329}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -392.00003, y: -108.00001}
+  m_AnchoredPosition: {x: -392, y: -113.356995}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341937112
@@ -54490,7 +54490,7 @@ MonoBehaviour:
   light: {fileID: 339828648}
   camera: {fileID: 1920487607}
   stage: 0
-  waySpeed: 2
+  waySpeed: 2.5
   totalBatteryInGame: 0
   totalCaverudo: 0
   canvasDirecional: {fileID: 292093004}
@@ -140734,7 +140734,7 @@ PrefabInstance:
       objectReference: {fileID: 339828648}
     - target: {fileID: 1920487608, guid: 9c75a84187506414c9be8b57f3875a2c, type: 3}
       propertyPath: waySpeed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1920487608, guid: 9c75a84187506414c9be8b57f3875a2c, type: 3}
       propertyPath: sizeCamera8px
@@ -140808,6 +140808,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801727016771822368, guid: b43063c2630bee748a3ab19368da78ca,
+        type: 3}
+      propertyPath: runSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801727016771822368, guid: b43063c2630bee748a3ab19368da78ca,
+        type: 3}
+      propertyPath: climbSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43063c2630bee748a3ab19368da78ca, type: 3}
