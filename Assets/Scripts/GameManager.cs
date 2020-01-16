@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(0);
+            ExitGame();
         }
 
         if (movimentPlayer.isAlive)
@@ -226,6 +226,12 @@ public class GameManager : MonoBehaviour
         cameraFollowLight.MoveCameraForPositionTheLight();
         cameraFollowLight.isFollow = true;
         //camera.transform.position = positionCamera[stage];
+    }
+
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
 
