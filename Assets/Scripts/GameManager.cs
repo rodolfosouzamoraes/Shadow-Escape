@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float waySpeed = 2f;
     [SerializeField] int totalBatteryInGame;
     [SerializeField] int totalCaverudo;
+    [SerializeField] GameObject canvasDirecional;
 
     [SerializeField] Vector2[] wayStage1;
     [SerializeField] Vector2[] wayStage2;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         totalBatteryInGame = GameObject.FindGameObjectsWithTag("Battery").Length;
         totalCaverudo = GameObject.FindGameObjectsWithTag("Enemy").Length;
         PlayerPrefs.SetInt("TotalCaverudos", totalCaverudo);
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
-        
+        canvasDirecional.SetActive(true);
         player.transform.position = positionPlayer[0];
         light.transform.position =  new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
         cameraFollowLight.MoveCameraForPositionTheLight();
@@ -104,12 +105,6 @@ public class GameManager : MonoBehaviour
         NextLevel();
     }
 
-    //private void FixedUpdate()
-    //{
-        
-        
-    //}
-
     private void WayPoint(Vector2[] wayStage)
     {
        
@@ -158,6 +153,7 @@ public class GameManager : MonoBehaviour
                     light.transform.position = new Vector3(positionShadowStage[stage + 1].x, positionShadowStage[stage + 1].y, -5.83f);
                     camera.transform.position = positionCamera[stage + 1];
                 }
+                canvasDirecional.SetActive(false);
                 light.GetComponent<Animator>().Play("Light", -1, 0);
                 Invoke("NextStage", 4.5f);
 
@@ -221,6 +217,7 @@ public class GameManager : MonoBehaviour
         cc.isCheckPoint = false;
         cc.wayPoint = 0;
 
+        canvasDirecional.SetActive(true);
         light.GetComponent<ExitShadowArea>().isActived = true;
         movimentPlayer.isAlive = true;
         StartWay();

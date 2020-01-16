@@ -17,6 +17,11 @@ public class MovimentPlayer : MonoBehaviour
     float gravityScaleAtStart;
     public bool isAlive;
     bool isLadder;
+    bool isDirectionalLeft = false;
+    bool isDirectionalRight = false;
+    bool isDirectionalUp = false;
+    bool isDirectionalDown = false;
+    bool isDirectionalJump = false;
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
@@ -33,6 +38,28 @@ public class MovimentPlayer : MonoBehaviour
         Run();
         ClimpLadder();
         Jump();
+        MovimentDirectionals();
+    }
+
+    private void MovimentDirectionals()
+    {
+        if (isDirectionalLeft)
+        {
+            MovimentX(-1);
+        }
+        if (isDirectionalRight)
+        {
+            MovimentX(1);
+        }
+        if (isDirectionalUp)
+        {
+            LadderMoviments(1);
+        }
+        if (isDirectionalDown)
+        {
+            LadderMoviments(-1);
+        }
+
     }
 
     private void ClimpLadder()
@@ -117,5 +144,64 @@ public class MovimentPlayer : MonoBehaviour
         myAnimator.SetBool("run", true);
         myAnimator.SetBool("idle", false);
         myAnimator.SetBool("jump", false);
+    }
+
+    public void MovimentLeft()
+    {
+        isDirectionalLeft = true;
+    }
+
+    public void MovimentRight()
+    {
+        isDirectionalRight = true;
+    }
+
+    public void MovimentUp()
+    {
+        isDirectionalUp = true;
+    }
+
+    public void MovimentDown()
+    {
+        isDirectionalDown= true;
+    }
+
+    public void MovimentJump()
+    {
+        if (!myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+
+        playAudio.Play(0);
+        Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
+        myRigibody.velocity += jumpVelocityToAdd;
+    }
+
+    public void StopMoviments()
+    {
+        isDirectionalLeft = false;
+        isDirectionalRight = false;
+        isDirectionalUp = false;
+        isDirectionalDown = false;
+        AnimationIdle();
+    }
+
+    public void LadderMoviments(float contrlThrow)
+    {
+        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        {
+            isLadder = false;
+            myRigibody.gravityScale = gravityScaleAtStart;
+        }
+        else
+        {
+            if (!isLadder)
+            {
+                isLadder = true;
+                myRigibody.velocity = new Vector2(0, 0);
+                myRigibody.gravityScale = 0;
+            }
+            Vector2 climbVelocity = new Vector2(myRigibody.velocity.x, contrlThrow * climbSpeed);
+            myRigibody.velocity = climbVelocity;
+            myRigibody.gravityScale = 0;
+        }
     }
 }
