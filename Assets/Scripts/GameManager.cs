@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     bool isStartWay = false;
     public int way = 0;
     MovimentPlayer movimentPlayer;
-    
+    FollowLight cameraFollowLight;
     
     void Start()
     {
@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("TotalBatteryCollected", 0);
         PlayerPrefs.SetInt("CaverudosDeath", 0);
 
-
-       movimentPlayer = player.GetComponent<MovimentPlayer>();
+        cameraFollowLight = camera.GetComponent<FollowLight>();
+        movimentPlayer = player.GetComponent<MovimentPlayer>();
         movimentPlayer.isAlive = false;
         stage = 0;
         Invoke("StartGame", 4.5f);
@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
         
         player.transform.position = positionPlayer[0];
         light.transform.position =  new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
-        camera.GetComponent<FollowLight>().isFollow = true;
+        cameraFollowLight.MoveCameraForPositionTheLight();
+        cameraFollowLight.isFollow = true;
         movimentPlayer.isAlive = true;
         light.GetComponent<ExitShadowArea>().isActived = true;
         Invoke("StartWay", 1f);
@@ -73,11 +74,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        NextLevel();
-    }
 
-    private void FixedUpdate()
-    {
         if (movimentPlayer.isAlive)
         {
             if (isStartWay)
@@ -100,16 +97,23 @@ public class GameManager : MonoBehaviour
                         WayPoint(wayStage5);
                         break;
                 }
-                
+
             }
         }
-        
+
+        NextLevel();
     }
+
+    //private void FixedUpdate()
+    //{
+        
+        
+    //}
 
     private void WayPoint(Vector2[] wayStage)
     {
        
-        if (Vector3.Distance(new Vector3(wayStage[way].x, wayStage[way].y,-5.83f), light.transform.position) < 1)
+        if (Vector3.Distance(new Vector3(wayStage[way].x, wayStage[way].y,-5.83f), light.transform.position) <= 0)
         {
             way++;
             if (way >= wayStage.Length)
@@ -119,7 +123,7 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        light.transform.position = Vector3.MoveTowards(light.transform.position, new Vector3(wayStage[way].x, wayStage[way].y, -5.83f), Time.deltaTime * waySpeed);
+        light.transform.position = Vector3.MoveTowards(light.transform.position, new Vector3(wayStage[way].x, wayStage[way].y, -5.83f), Time.fixedDeltaTime * waySpeed);
     }
 
     public void NextLevel()
@@ -140,7 +144,8 @@ public class GameManager : MonoBehaviour
                 light.GetComponent<ExitShadowArea>().isActived = false;
                 movimentPlayer.isAlive = false;
                 movimentPlayer.AnimationIdle();
-                camera.GetComponent<FollowLight>().isFollow = false;
+                cameraFollowLight.MoveCameraForPositionTheLight();
+                cameraFollowLight.isFollow = false;
                 if (stage > 3)
                 {
                     player.transform.position = positionPlayer[0];
@@ -169,7 +174,7 @@ public class GameManager : MonoBehaviour
             way = 0;
             player.transform.position = positionPlayer[stage];
             light.transform.position = positionShadowStage[stage];
-            camera.transform.position = positionCamera[stage];
+            cameraFollowLight.MoveCameraForPositionTheLight();
 
         }
         else
@@ -198,7 +203,7 @@ public class GameManager : MonoBehaviour
                     player.transform.position = new Vector3(wayStage5[wayPoint].x, wayStage5[wayPoint].y, checkpoint.z);
                     break;
             }
-            camera.transform.position = positionCamera[stage];
+            cameraFollowLight.MoveCameraForPositionTheLight();
         }
         Invoke("EnablePlayer", 1f);
 
@@ -221,7 +226,8 @@ public class GameManager : MonoBehaviour
         StartWay();
         player.transform.position = positionPlayer[stage];
         light.transform.position = new Vector3(positionShadowStage[stage].x, positionShadowStage[stage].y, -5.83f);
-        camera.GetComponent<FollowLight>().isFollow = true;
+        cameraFollowLight.MoveCameraForPositionTheLight();
+        cameraFollowLight.isFollow = true;
         //camera.transform.position = positionCamera[stage];
     }
 
