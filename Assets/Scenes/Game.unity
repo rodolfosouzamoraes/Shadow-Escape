@@ -53275,7 +53275,7 @@ MonoBehaviour:
   - {x: 106, y: -7.5}
   - {x: 146, y: -7.5}
   player: {fileID: 1840512307}
-  shadow: {fileID: 339828648}
+  light: {fileID: 339828648}
   camera: {fileID: 1920487607}
   stage: 0
   waySpeed: 2
@@ -68127,6 +68127,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6542668066678212939}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1920487608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920487607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cbeec11d096824fa3876c20af13fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 339828648}
+  isFollow: 0
 --- !u!1 &1931888040
 GameObject:
   m_ObjectHideFlags: 0

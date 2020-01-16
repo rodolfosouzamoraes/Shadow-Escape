@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector2[] positionShadowStage;
     [SerializeField] Vector2[] positionPlayer;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject shadow;
+    [SerializeField] GameObject light;
     [SerializeField] GameObject camera;
     [SerializeField] int stage;
     [SerializeField] float waySpeed = 2f;
@@ -47,11 +47,12 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
+        
         player.transform.position = positionPlayer[0];
-        shadow.transform.position =  new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
-        camera.transform.position = positionCamera[0];
+        light.transform.position =  new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
+        camera.GetComponent<FollowLight>().isFollow = true;
         movimentPlayer.isAlive = true;
-        shadow.GetComponent<ExitShadowArea>().isActived = true;
+        light.GetComponent<ExitShadowArea>().isActived = true;
         Invoke("StartWay", 1f);
 
     }
@@ -108,7 +109,7 @@ public class GameManager : MonoBehaviour
     private void WayPoint(Vector2[] wayStage)
     {
        
-        if (Vector3.Distance(new Vector3(wayStage[way].x, wayStage[way].y,-5.83f), shadow.transform.position) < 1)
+        if (Vector3.Distance(new Vector3(wayStage[way].x, wayStage[way].y,-5.83f), light.transform.position) < 1)
         {
             way++;
             if (way >= wayStage.Length)
@@ -118,7 +119,7 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        shadow.transform.position = Vector3.MoveTowards(shadow.transform.position, new Vector3(wayStage[way].x, wayStage[way].y, -5.83f), Time.deltaTime * waySpeed);
+        light.transform.position = Vector3.MoveTowards(light.transform.position, new Vector3(wayStage[way].x, wayStage[way].y, -5.83f), Time.deltaTime * waySpeed);
     }
 
     public void NextLevel()
@@ -136,23 +137,23 @@ public class GameManager : MonoBehaviour
             else
             {
                 player.GetComponent<CollisionPlayer>().isFinishStage = false;
-                shadow.GetComponent<ExitShadowArea>().isActived = false;
+                light.GetComponent<ExitShadowArea>().isActived = false;
                 movimentPlayer.isAlive = false;
                 movimentPlayer.AnimationIdle();
-
+                camera.GetComponent<FollowLight>().isFollow = false;
                 if (stage > 3)
                 {
                     player.transform.position = positionPlayer[0];
-                    shadow.transform.position = new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
+                    light.transform.position = new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
                     camera.transform.position = positionCamera[0];
                 }
                 else
                 {
                     player.transform.position = positionPlayer[stage + 1];
-                    shadow.transform.position = new Vector3(positionShadowStage[stage + 1].x, positionShadowStage[stage + 1].y, -5.83f);
+                    light.transform.position = new Vector3(positionShadowStage[stage + 1].x, positionShadowStage[stage + 1].y, -5.83f);
                     camera.transform.position = positionCamera[stage + 1];
                 }
-                shadow.GetComponent<Animator>().Play("Light", -1, 0);
+                light.GetComponent<Animator>().Play("Light", -1, 0);
                 Invoke("NextStage", 4.5f);
 
 
@@ -167,7 +168,7 @@ public class GameManager : MonoBehaviour
         {
             way = 0;
             player.transform.position = positionPlayer[stage];
-            shadow.transform.position = positionShadowStage[stage];
+            light.transform.position = positionShadowStage[stage];
             camera.transform.position = positionCamera[stage];
 
         }
@@ -177,23 +178,23 @@ public class GameManager : MonoBehaviour
             switch (stage)
             {
                 case 0:
-                    shadow.transform.position = wayStage1[wayPoint];
+                    light.transform.position = wayStage1[wayPoint];
                     player.transform.position = new Vector3(wayStage1[wayPoint].x, wayStage1[wayPoint].y, checkpoint.z);
                     break;
                 case 1:
-                    shadow.transform.position = wayStage2[wayPoint];
+                    light.transform.position = wayStage2[wayPoint];
                     player.transform.position = new Vector3(wayStage2[wayPoint].x, wayStage2[wayPoint].y, checkpoint.z);
                     break;
                 case 2:
-                    shadow.transform.position = wayStage3[wayPoint];
+                    light.transform.position = wayStage3[wayPoint];
                     player.transform.position = new Vector3(wayStage3[wayPoint].x, wayStage3[wayPoint].y, checkpoint.z);
                     break;
                 case 3:
-                    shadow.transform.position = wayStage4[wayPoint];
+                    light.transform.position = wayStage4[wayPoint];
                     player.transform.position = new Vector3(wayStage4[wayPoint].x, wayStage4[wayPoint].y, checkpoint.z);
                     break;
                 case 4:
-                    shadow.transform.position = wayStage5[wayPoint];
+                    light.transform.position = wayStage5[wayPoint];
                     player.transform.position = new Vector3(wayStage5[wayPoint].x, wayStage5[wayPoint].y, checkpoint.z);
                     break;
             }
@@ -215,12 +216,13 @@ public class GameManager : MonoBehaviour
         cc.isCheckPoint = false;
         cc.wayPoint = 0;
 
-        shadow.GetComponent<ExitShadowArea>().isActived = true;
+        light.GetComponent<ExitShadowArea>().isActived = true;
         movimentPlayer.isAlive = true;
         StartWay();
         player.transform.position = positionPlayer[stage];
-        shadow.transform.position = new Vector3(positionShadowStage[stage].x, positionShadowStage[stage].y, -5.83f);
-        camera.transform.position = positionCamera[stage];
+        light.transform.position = new Vector3(positionShadowStage[stage].x, positionShadowStage[stage].y, -5.83f);
+        camera.GetComponent<FollowLight>().isFollow = true;
+        //camera.transform.position = positionCamera[stage];
     }
 
 
