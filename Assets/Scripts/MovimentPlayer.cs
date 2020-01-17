@@ -22,6 +22,7 @@ public class MovimentPlayer : MonoBehaviour
     bool isDirectionalUp = false;
     bool isDirectionalDown = false;
     bool isDirectionalJump = false;
+    int directionLadder = 1;
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
@@ -51,15 +52,25 @@ public class MovimentPlayer : MonoBehaviour
         {
             MovimentX(1);
         }
-        if (isDirectionalUp)
-        {
-            LadderMoviments(1);
-        }
-        if (isDirectionalDown)
-        {
-            LadderMoviments(-1);
-        }
 
+        ClimbLadder(directionLadder);
+
+    }
+
+    private void ClimbLadder(int value)
+    {
+        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        {
+            isLadder = false;
+            myRigibody.gravityScale = gravityScaleAtStart;
+        }
+        else
+        {
+            if(isDirectionalUp || isDirectionalDown)
+            {
+                LadderMoviments(value);
+            }
+        }
     }
 
     private void ClimpLadder()
@@ -159,11 +170,13 @@ public class MovimentPlayer : MonoBehaviour
     public void MovimentUp()
     {
         isDirectionalUp = true;
+        directionLadder = 1;
     }
 
     public void MovimentDown()
     {
         isDirectionalDown= true;
+        directionLadder= - 1;
     }
 
     public void MovimentJump()
@@ -174,6 +187,13 @@ public class MovimentPlayer : MonoBehaviour
         playAudio.Play(0);
         Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
         myRigibody.velocity += jumpVelocityToAdd;
+    }
+
+    public void StopMovimentLadder()
+    {
+        isDirectionalUp = false;
+        isDirectionalDown = false;
+        LadderMoviments(0);
     }
 
     public void StopMoviments()
