@@ -140740,11 +140740,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasMobile
       objectReference: {fileID: 0}
-    - target: {fileID: 7677615822474062783, guid: 60c5b672de9c0e34e99a7884c54f9674,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7677615822474062755, guid: 60c5b672de9c0e34e99a7884c54f9674,
         type: 3}
       propertyPath: m_LocalPosition.x
