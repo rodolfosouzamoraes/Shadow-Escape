@@ -28,7 +28,7 @@ public class BulletMoviment : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Player":
-                if(sceneIndex != 1)
+                if(sceneIndex != 2)
                 {
                     collision.gameObject.GetComponent<CollisionPlayer>().DamagePlayer(2);
                 }
