@@ -56,6 +56,6 @@ public class ManageTheEnd : MonoBehaviour
 
     public void ExitGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

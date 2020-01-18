@@ -7,7 +7,7 @@ public class CanvasHistory : MonoBehaviour
 {
     public void StartSceneGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     private void Update()

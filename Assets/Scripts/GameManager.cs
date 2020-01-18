@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public int way = 0;
     MovimentPlayer movimentPlayer;
     FollowLight cameraFollowLight;
+    PauseGame pauseGame;
     
     void Start()
     {
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         movimentPlayer = player.GetComponent<MovimentPlayer>();
         movimentPlayer.isAlive = false;
         stage = 0;
+        pauseGame = GetComponent<PauseGame>();
         Invoke("StartGame", 4.5f);
     }
 
@@ -76,33 +78,36 @@ public class GameManager : MonoBehaviour
             ExitGame();
         }
 
-        if (movimentPlayer.isAlive)
+        if (!pauseGame.paused)
         {
-            if (isStartWay)
+            if (movimentPlayer.isAlive)
             {
-                switch (stage)
+                if (isStartWay)
                 {
-                    case 0:
-                        WayPoint(wayStage1);
-                        break;
-                    case 1:
-                        WayPoint(wayStage2);
-                        break;
-                    case 2:
-                        WayPoint(wayStage3);
-                        break;
-                    case 3:
-                        WayPoint(wayStage4);
-                        break;
-                    case 4:
-                        WayPoint(wayStage5);
-                        break;
+                    switch (stage)
+                    {
+                        case 0:
+                            WayPoint(wayStage1);
+                            break;
+                        case 1:
+                            WayPoint(wayStage2);
+                            break;
+                        case 2:
+                            WayPoint(wayStage3);
+                            break;
+                        case 3:
+                            WayPoint(wayStage4);
+                            break;
+                        case 4:
+                            WayPoint(wayStage5);
+                            break;
+                    }
+
                 }
-
             }
-        }
 
-        NextLevel();
+            NextLevel();
+        }
     }
 
     private void WayPoint(Vector2[] wayStage)
@@ -131,7 +136,7 @@ public class GameManager : MonoBehaviour
                 //Scene Final
                 PlayerPrefs.SetInt("TotalBatteryCollected", player.GetComponent<CollectBattery>().GetTotalBattery());
                 PlayerPrefs.SetInt("CaverudosDeath", player.GetComponent<CollectCaverudo>().GetTotalCaverudo());
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
             else
             {
@@ -231,7 +236,7 @@ public class GameManager : MonoBehaviour
 
     public void ExitGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
