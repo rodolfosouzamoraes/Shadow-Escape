@@ -44,6 +44,7 @@ public class MovimentPlayer : MonoBehaviour
 
     private void MovimentDirectionals()
     {
+        ClimbLadder(directionLadder);
         if (isDirectionalLeft)
         {
             MovimentX(-1);
@@ -53,23 +54,22 @@ public class MovimentPlayer : MonoBehaviour
             MovimentX(1);
         }
 
-        ClimbLadder(directionLadder);
-
     }
 
     private void ClimbLadder(int value)
     {
-        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        if (myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
         {
-            isLadder = false;
-            myRigibody.gravityScale = gravityScaleAtStart;
-        }
-        else
-        {
-            if(isDirectionalUp || isDirectionalDown)
+            myRigibody.gravityScale = 0;
+            myRigibody.velocity = new Vector2(0, 0);
+            if (isDirectionalUp || isDirectionalDown)
             {
                 LadderMoviments(value);
             }
+        }
+        else
+        {
+            myRigibody.gravityScale = gravityScaleAtStart;
         }
     }
 
@@ -193,6 +193,7 @@ public class MovimentPlayer : MonoBehaviour
     {
         isDirectionalUp = false;
         isDirectionalDown = false;
+        AnimationIdle();
         LadderMoviments(0);
     }
 
@@ -207,22 +208,8 @@ public class MovimentPlayer : MonoBehaviour
 
     public void LadderMoviments(float contrlThrow)
     {
-        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
-        {
-            isLadder = false;
-            myRigibody.gravityScale = gravityScaleAtStart;
-        }
-        else
-        {
-            if (!isLadder)
-            {
-                isLadder = true;
-                myRigibody.velocity = new Vector2(0, 0);
-                myRigibody.gravityScale = 0;
-            }
-            Vector2 climbVelocity = new Vector2(myRigibody.velocity.x, contrlThrow * climbSpeed);
-            myRigibody.velocity = climbVelocity;
-            myRigibody.gravityScale = 0;
-        }
+        Vector2 climbVelocity = new Vector2(myRigibody.velocity.x, contrlThrow * climbSpeed);
+        myRigibody.velocity = climbVelocity;
+        myRigibody.gravityScale = 0;
     }
 }
