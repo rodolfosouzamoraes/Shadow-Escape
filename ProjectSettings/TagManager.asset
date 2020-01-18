@@ -17,6 +17,7 @@ TagManager:
   - Princess
   - Death
   - VolumeAudios
+  - Egg
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - Boss
   - Princess
   - Death
-  - 
+  - Egg
   - 
   - 
   - 
