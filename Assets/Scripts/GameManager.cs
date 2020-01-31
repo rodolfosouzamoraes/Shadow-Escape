@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int totalBatteryInGame;
     [SerializeField] int totalCaverudo;
     [SerializeField] GameObject canvasDirecional;
+    [SerializeField] List<GameObject> caverudosStage;
+    [SerializeField] List<GameObject> batterysStage;
 
     [SerializeField] Vector2[] wayStage1;
     [SerializeField] Vector2[] wayStage2;
@@ -29,30 +31,76 @@ public class GameManager : MonoBehaviour
     MovimentPlayer movimentPlayer;
     FollowLight cameraFollowLight;
     PauseGame pauseGame;
-    
+
+    private void Awake()
+    {
+        //PlayerPrefs.SetInt("Stage", 0);
+        stage = PlayerPrefs.GetInt("Stage");
+
+        List<GameObject> caverudos = new List<GameObject>();
+        List<GameObject> batterys = new List<GameObject>();
+
+        for (int i = 0; i <= stage - 1; i++)
+        {
+            caverudos.Add(caverudosStage[i]);
+            batterys.Add(batterysStage[i]);
+        }
+
+        if (stage > 0)
+        {
+            RemoveObjectsStage(caverudos, caverudosStage);
+            RemoveObjectsStage(batterys, batterysStage);
+        }
+        
+    }
+
+    private void RemoveObjectsStage(List<GameObject> listObjects, List<GameObject> listForRemove)
+    {
+        foreach (GameObject go in listObjects)
+        {
+            listForRemove.Remove(go);
+            Destroy(go);
+        }
+    }
+
     void Start()
     {
         //Cursor.visible = false;
-        totalBatteryInGame = GameObject.FindGameObjectsWithTag("Battery").Length;
-        totalCaverudo = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        totalCaverudo = CountObjectStage(caverudosStage);
+        totalBatteryInGame = CountObjectStage(batterysStage);
+
         PlayerPrefs.SetInt("TotalCaverudos", totalCaverudo);
         PlayerPrefs.SetInt("TotalBattery", totalBatteryInGame);
-        PlayerPrefs.SetInt("TotalBatteryCollected", 0);
-        PlayerPrefs.SetInt("CaverudosDeath", 0);
+        PlayerPrefs.SetInt("TotalBatteryCollected", PlayerPrefs.GetInt("TotalBatteryCollected"));
+        PlayerPrefs.SetInt("CaverudosDeath", PlayerPrefs.GetInt("CaverudosDeath"));
+
+        int stageFake = stage > 3 ? 0 : stage + 1;
+        player.transform.position = positionPlayer[stageFake];
+        light.transform.position = new Vector3(positionShadowStage[stageFake].x, positionShadowStage[stageFake].y, -5.83f);
+        camera.transform.position = positionCamera[stageFake];
 
         cameraFollowLight = camera.GetComponent<FollowLight>();
         movimentPlayer = player.GetComponent<MovimentPlayer>();
         movimentPlayer.isAlive = false;
-        stage = 0;
         pauseGame = GetComponent<PauseGame>();
         Invoke("StartGame", 4.5f);
+    }
+
+    private int CountObjectStage(List<GameObject> listObject)
+    {
+        int total = 0;
+        foreach (GameObject go in listObject)
+        {
+            total += go.transform.childCount;
+        }
+        return total;
     }
 
     void StartGame()
     {
         canvasDirecional.SetActive(true);
-        player.transform.position = positionPlayer[0];
-        light.transform.position =  new Vector3(positionShadowStage[0].x, positionShadowStage[0].y, -5.83f);
+        player.transform.position = positionPlayer[stage];
+        light.transform.position =  new Vector3(positionShadowStage[stage].x, positionShadowStage[stage].y, -5.83f);
         cameraFollowLight.MoveCameraForPositionTheLight();
         cameraFollowLight.isFollow = true;
         movimentPlayer.isAlive = true;
@@ -134,8 +182,8 @@ public class GameManager : MonoBehaviour
             if (stage > 4)
             {
                 //Scene Final
-                PlayerPrefs.SetInt("TotalBatteryCollected", player.GetComponent<CollectBattery>().GetTotalBattery());
-                PlayerPrefs.SetInt("CaverudosDeath", player.GetComponent<CollectCaverudo>().GetTotalCaverudo());
+                SaveCollectedItens();
+                PlayerPrefs.SetInt("Stage", stage);
                 SceneManager.LoadScene(3);
             }
             else
@@ -236,8 +284,13 @@ public class GameManager : MonoBehaviour
 
     public void ExitGame()
     {
+        PlayerPrefs.SetInt("Stage", stage);
         SceneManager.LoadScene(1);
     }
 
-
+    private void SaveCollectedItens()
+    {
+        PlayerPrefs.SetInt("TotalBatteryCollected", player.GetComponent<CollectBattery>().GetTotalBattery());
+        PlayerPrefs.SetInt("CaverudosDeath", player.GetComponent<CollectCaverudo>().GetTotalCaverudo());
+    }
 }

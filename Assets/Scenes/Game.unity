@@ -54140,10 +54140,22 @@ MonoBehaviour:
   light: {fileID: 339828648}
   camera: {fileID: 1920487607}
   stage: 0
-  waySpeed: 2
+  waySpeed: 0.5
   totalBatteryInGame: 0
   totalCaverudo: 0
   canvasDirecional: {fileID: 292093004}
+  caverudosStage:
+  - {fileID: 1066752833}
+  - {fileID: 1124327338}
+  - {fileID: 585579793}
+  - {fileID: 348638232}
+  - {fileID: 2068154921}
+  batterysStage:
+  - {fileID: 1148545770}
+  - {fileID: 1847500275}
+  - {fileID: 2144439402}
+  - {fileID: 313292005}
+  - {fileID: 981568659}
   wayStage1:
   - {x: -14, y: -6.5}
   - {x: -10.5, y: -6.5}
@@ -141318,7 +141330,7 @@ PrefabInstance:
       objectReference: {fileID: 339828648}
     - target: {fileID: 1920487608, guid: 9c75a84187506414c9be8b57f3875a2c, type: 3}
       propertyPath: waySpeed
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1920487608, guid: 9c75a84187506414c9be8b57f3875a2c, type: 3}
       propertyPath: sizeCamera8px

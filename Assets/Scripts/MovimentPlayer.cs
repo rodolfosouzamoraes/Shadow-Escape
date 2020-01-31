@@ -32,14 +32,21 @@ public class MovimentPlayer : MonoBehaviour
         playAudio = GetComponent<PlayAudio>();
         gravityScaleAtStart = myRigibody.gravityScale;
     }
-    void FixedUpdate()
+    void Update()
     {
         if (!isAlive) { return; }
 
-        //Run();
-        //ClimpLadder();
-        //Jump();
+        //MovimentKeyboard();
         MovimentDirectionals();
+    }
+
+    private void MovimentKeyboard()
+    {
+        Jump();
+        ClimpLadder();
+        Run();
+        
+        
     }
 
     private void MovimentDirectionals()

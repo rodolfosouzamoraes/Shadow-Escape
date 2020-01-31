@@ -12,6 +12,6 @@ public class CollectCoin : MonoBehaviour
         GetComponent<PlayAudio>().Play(5);
         checkpoint = transform.position;
         isCheckPoint = true;
-        wayPoint = GameObject.FindObjectOfType<GameManager>().way;
+        wayPoint = FindObjectOfType<GameManager>().way;
     }
 }

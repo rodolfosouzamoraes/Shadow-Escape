@@ -16,6 +16,7 @@ public class CollisionPrincess : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            PlayerPrefs.SetInt("Stage",0);
             collision.gameObject.GetComponent<MovimentPlayer>().isAlive = false;
             collision.gameObject.GetComponent<MovimentPlayer>().AnimationIdle();
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetBool("Finish", true);

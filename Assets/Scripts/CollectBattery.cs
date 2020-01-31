@@ -6,6 +6,10 @@ public class CollectBattery : MonoBehaviour
 {
     [SerializeField] int totalBattery = 0;
 
+    public void Init(int batterys)
+    {
+        totalBattery = batterys;
+    }
     public void AddBattery()
     {
         GetComponent<PlayAudio>().Play(3);

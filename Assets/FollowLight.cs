@@ -8,7 +8,7 @@ public class FollowLight : MonoBehaviour
     [SerializeField] GameObject target;
     [SerializeField] float waySpeed = 2f;
     public bool isFollow = false;
-    public float sizeCamera8px = 4f;
+    public float sizeCamera8px = 4f; //Conta do Pixel Perfect, no meu caso 64/8/2 = 4
     float sizeCameraOri;
     Camera camera;
     Vector3 lastPositionTarget;

@@ -21,6 +21,7 @@ public class CollisionEgg : MonoBehaviour
         {
             PlayerPrefs.SetInt("TotalBatteryCollected", totalBatteryInGame);
             PlayerPrefs.SetInt("CaverudosDeath", totalCaverudo);
+            PlayerPrefs.SetInt("Stage", 5);
             SceneManager.LoadScene(3);
         }
         
