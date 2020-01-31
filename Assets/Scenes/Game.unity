@@ -54140,7 +54140,7 @@ MonoBehaviour:
   light: {fileID: 339828648}
   camera: {fileID: 1920487607}
   stage: 0
-  waySpeed: 0.5
+  waySpeed: 2
   totalBatteryInGame: 0
   totalCaverudo: 0
   canvasDirecional: {fileID: 292093004}
@@ -141330,7 +141330,7 @@ PrefabInstance:
       objectReference: {fileID: 339828648}
     - target: {fileID: 1920487608, guid: 9c75a84187506414c9be8b57f3875a2c, type: 3}
       propertyPath: waySpeed
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1920487608, guid: 9c75a84187506414c9be8b57f3875a2c, type: 3}
       propertyPath: sizeCamera8px
