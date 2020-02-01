@@ -10409,6 +10409,18 @@ Transform:
   m_Father: {fileID: 1119041008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &733257927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2876580580240092488, guid: 60c5b672de9c0e34e99a7884c54f9674,
+    type: 3}
+  m_PrefabInstance: {fileID: 7677615822752503795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0073a533c534642a10b04a0a360d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &750849958
 GameObject:
   m_ObjectHideFlags: 0
@@ -141350,6 +141362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6801727016771822368, guid: b43063c2630bee748a3ab19368da78ca,
+        type: 3}
+      propertyPath: joyControl
+      value: 
+      objectReference: {fileID: 733257927}
     - target: {fileID: 6801727016771822381, guid: b43063c2630bee748a3ab19368da78ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -141487,6 +141504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CanvasMobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677615822474062783, guid: 60c5b672de9c0e34e99a7884c54f9674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7677615822474062755, guid: 60c5b672de9c0e34e99a7884c54f9674,
         type: 3}

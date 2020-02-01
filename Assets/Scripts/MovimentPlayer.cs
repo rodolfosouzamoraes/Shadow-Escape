@@ -8,6 +8,7 @@ public class MovimentPlayer : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] JoyControl joyControl;
 
     Rigidbody2D myRigibody;
     BoxCollider2D myBoxCollider;
@@ -23,6 +24,8 @@ public class MovimentPlayer : MonoBehaviour
     bool isDirectionalDown = false;
     bool isDirectionalJump = false;
     int directionLadder = 1;
+
+
     void Start()
     {
         myRigibody = GetComponent<Rigidbody2D>();
@@ -32,7 +35,7 @@ public class MovimentPlayer : MonoBehaviour
         playAudio = GetComponent<PlayAudio>();
         gravityScaleAtStart = myRigibody.gravityScale;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (!isAlive) { return; }
 
@@ -51,28 +54,18 @@ public class MovimentPlayer : MonoBehaviour
 
     private void MovimentDirectionals()
     {
-        ClimbLadder(directionLadder);
-        if (isDirectionalLeft)
-        {
-            MovimentX(-1);
-        }
-        if (isDirectionalRight)
-        {
-            MovimentX(1);
-        }
+        ClimbLadder(joyControl.MovimentVertical());
+        MovimentX(joyControl.MovimentHorizontal());
 
     }
 
-    private void ClimbLadder(int value)
+    private void ClimbLadder(float value)
     {
         if (myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
         {
             myRigibody.gravityScale = 0;
             myRigibody.velocity = new Vector2(0, 0);
-            if (isDirectionalUp || isDirectionalDown)
-            {
-                LadderMoviments(value);
-            }
+            LadderMoviments(value);
         }
         else
         {
@@ -154,14 +147,21 @@ public class MovimentPlayer : MonoBehaviour
     {
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigibody.velocity.y);
         myRigibody.velocity = playerVelocity;
-        Vector3 novoScale = new Vector3(controlThrow, transform.localScale.y,1);
+        Vector3 novoScale = new Vector3(controlThrow>0 ? 1 : controlThrow<0 ? -1 : transform.localScale.x, transform.localScale.y,1);
         transform.localScale = novoScale;
-        GetComponent<FlipLifeBar>().FlipBarLife(controlThrow);
+        GetComponent<FlipLifeBar>().FlipBarLife(novoScale);
 
-
-        myAnimator.SetBool("run", true);
-        myAnimator.SetBool("idle", false);
-        myAnimator.SetBool("jump", false);
+        if(controlThrow != 0)
+        {
+            myAnimator.SetBool("run", true);
+            myAnimator.SetBool("idle", false);
+            myAnimator.SetBool("jump", false);
+        }
+        else
+        {
+            AnimationIdle();
+        }
+        
     }
 
     public void MovimentLeft()
