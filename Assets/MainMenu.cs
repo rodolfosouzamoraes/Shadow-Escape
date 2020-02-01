@@ -49,7 +49,15 @@ public class MainMenu : MonoBehaviour
     {
         isPlaying = true;
         canvasTransition.SetActive(true);
-        Invoke("StartGame", 1.4f);
+        if(PlayerPrefs.GetInt("Stage") > 4)
+        {
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            Invoke("StartGame", 1.4f);
+        }
+        
     }
 
     public void ClickButtonExitGame()
