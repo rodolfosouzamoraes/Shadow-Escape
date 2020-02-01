@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class CanvasHistory : MonoBehaviour
 {
+    private void Start()
+    {
+        if(PlayerPrefs.GetInt("Stage") > 0)
+        {
+            StartSceneGame();
+        }
+    }
     public void StartSceneGame()
     {
         SceneManager.LoadScene(2);

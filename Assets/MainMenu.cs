@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject canvasCredits;
     [SerializeField] GameObject canvasTransition;
     [SerializeField] GameObject princess;
+    [SerializeField] GameObject btnContinue;
 
     bool isPlaying = false;
 
@@ -21,10 +22,12 @@ public class MainMenu : MonoBehaviour
         if (theEnd == 1)
         {
             princess.SetActive(true);
+            btnContinue.SetActive(false);
         }
         else
         {
             princess.SetActive(false);
+            btnContinue.SetActive(PlayerPrefs.GetInt("Stage") > 0);
         }
     }
 
@@ -34,6 +37,15 @@ public class MainMenu : MonoBehaviour
     }
 
     public void ClickButtonPlay()
+    {
+        isPlaying = true;
+        canvasTransition.SetActive(true);
+        PlayerPrefs.SetInt("Stage", 0);
+        PlayerPrefs.SetInt("EndGame", 0);
+        Invoke("StartGame", 1.4f);
+    }
+
+    public void ClickButtonContinue()
     {
         isPlaying = true;
         canvasTransition.SetActive(true);
