@@ -50,7 +50,7 @@ public class JoyControl : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
         }
         else
         {
-            return Input.GetAxis("Horizontal");
+            return 0;
         }
     }
 
@@ -62,7 +62,7 @@ public class JoyControl : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
         }
         else
         {
-            return Input.GetAxis("Vertical");
+            return 0;
         }
     }
 }

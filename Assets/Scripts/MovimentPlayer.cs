@@ -25,9 +25,19 @@ public class MovimentPlayer : MonoBehaviour
     bool isDirectionalJump = false;
     int directionLadder = 1;
 
+    public enum Directional
+    {
+        joystick = 0,
+        buttons = 1,
+        keyboard = 2
+    }
+
+    public int directional { get; set; }
+
 
     void Start()
     {
+        directional = 0;
         myRigibody = GetComponent<Rigidbody2D>();
         myBoxCollider = GetComponent<BoxCollider2D>();
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
@@ -39,8 +49,24 @@ public class MovimentPlayer : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        //MovimentKeyboard();
-        MovimentDirectionals();
+        switch (directional)
+        {
+            case (int)Directional.joystick:
+                MovimentJoystick();
+                break;
+            case (int)Directional.buttons:
+                MovimentButtons();
+                break;
+            case (int)Directional.keyboard:
+                //MovimentKeyboard();
+                break;
+        }
+    }
+
+    private void MovimentButtons()
+    {
+        ClimbLadder(isDirectionalUp ? 1 : isDirectionalDown ? -1 : 0);
+        Run();
     }
 
     private void MovimentKeyboard()
@@ -48,11 +74,9 @@ public class MovimentPlayer : MonoBehaviour
         Jump();
         ClimpLadder();
         Run();
-        
-        
     }
 
-    private void MovimentDirectionals()
+    private void MovimentJoystick()
     {
         ClimbLadder(joyControl.MovimentVertical());
         MovimentX(joyControl.MovimentHorizontal());
@@ -113,10 +137,10 @@ public class MovimentPlayer : MonoBehaviour
 
     private void Run()
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || isDirectionalRight)
         {
             MovimentX(1);
-        }else if (Input.GetKey(KeyCode.A))
+        }else if (Input.GetKey(KeyCode.A) || isDirectionalLeft)
         {
             MovimentX(-1);
         }

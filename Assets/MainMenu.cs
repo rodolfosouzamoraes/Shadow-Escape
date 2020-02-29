@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject canvasMenu;
     [SerializeField] GameObject canvasCredits;
+    [SerializeField] GameObject canvasConfig;
     [SerializeField] GameObject canvasTransition;
     [SerializeField] GameObject princess;
     [SerializeField] GameObject btnContinue;
@@ -65,9 +66,19 @@ public class MainMenu : MonoBehaviour
         if (!isPlaying){ Application.Quit(); }
     }
 
+    public void ClickButtonConfig()
+    {
+        if (!isPlaying) { canvasConfig.SetActive(true); }
+    }
+
     public void CloseCanvasCredits()
     {
         canvasCredits.SetActive(false);
+    }
+
+    public void CloseCanvasConfig()
+    {
+        canvasConfig.SetActive(false);
     }
 
     void StartGame()
