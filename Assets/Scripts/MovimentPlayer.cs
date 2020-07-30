@@ -24,20 +24,15 @@ public class MovimentPlayer : MonoBehaviour
     bool isDirectionalDown = false;
     bool isDirectionalJump = false;
     int directionLadder = 1;
-
     public enum Directional
     {
         joystick = 0,
         buttons = 1,
         keyboard = 2
     }
-
-    public int directional { get; set; }
-
-
+    public int directional {get;set;}
     void Start()
     {
-        directional = 0;
         myRigibody = GetComponent<Rigidbody2D>();
         myBoxCollider = GetComponent<BoxCollider2D>();
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
@@ -117,9 +112,6 @@ public class MovimentPlayer : MonoBehaviour
             myRigibody.velocity = climbVelocity;
             myRigibody.gravityScale = 0;
         }
-
-        
-
     }
 
 
@@ -156,7 +148,6 @@ public class MovimentPlayer : MonoBehaviour
                 myAnimator.SetBool("idle", false);
                 myAnimator.SetBool("jump", true);
             }
-            
         }
     }
 

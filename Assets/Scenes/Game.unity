@@ -54152,7 +54152,7 @@ MonoBehaviour:
   light: {fileID: 339828648}
   camera: {fileID: 1920487607}
   stage: 0
-  waySpeed: 0
+  waySpeed: 1
   totalBatteryInGame: 0
   totalCaverudo: 0
   canvasDirecional: {fileID: 292093004}
@@ -141512,6 +141512,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4061370662007964590, guid: 60c5b672de9c0e34e99a7884c54f9674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7677615821968261271, guid: 60c5b672de9c0e34e99a7884c54f9674,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -141672,6 +141677,16 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1840512315}
+    - target: {fileID: 7677615823690863331, guid: 60c5b672de9c0e34e99a7884c54f9674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677615823735922904, guid: 60c5b672de9c0e34e99a7884c54f9674,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7677615823735922906, guid: 60c5b672de9c0e34e99a7884c54f9674,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -141682,6 +141697,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1840512315}
+    - target: {fileID: 8683372842509143981, guid: 60c5b672de9c0e34e99a7884c54f9674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8939934393818821666, guid: 60c5b672de9c0e34e99a7884c54f9674,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target

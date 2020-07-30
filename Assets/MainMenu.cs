@@ -13,9 +13,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject btnContinue;
 
     bool isPlaying = false;
-
-    
-
     private void Start()
     {
         Cursor.visible = true;
